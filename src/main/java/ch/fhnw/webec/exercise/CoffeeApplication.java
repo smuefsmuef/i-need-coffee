@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.config.*;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class Application {
+public class CoffeeApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(CoffeeApplication.class, args);
     }
 }
