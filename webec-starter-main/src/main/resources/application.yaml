@@ -1,0 +1,24 @@
+pebble:
+    suffix: .peb
+    cache: false
+spring:
+    datasource:
+        # store data only in memory
+        #url: jdbc:h2:mem:starter
+
+        # store data in a persistent file
+        #url: jdbc:h2:file:./data/application
+
+        # store data in a persistent file, mode MySQL and enable server
+        url: jdbc:h2:file:./data/application;MODE=MySQL;AUTO_SERVER=true
+    #sql:
+    #    init:
+    #        mode: always
+    #h2:
+    #    console:
+    #        enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: update
+        # defer-datasource-initialization: true
+        # show-sql: true
