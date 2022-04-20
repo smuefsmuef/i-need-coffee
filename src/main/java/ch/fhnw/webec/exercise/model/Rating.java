@@ -59,7 +59,7 @@ public class Rating {
     @ManyToOne
     private CoffeeMix coffeeMix;
 
-    
+
     public Long getId() {
         return id;
     }
@@ -117,11 +117,11 @@ public class Rating {
         this.createdDate = createdDate;
     }
 
-    public CoffeMix getCoffeMix() {
-        return coffeMix;
+    public CoffeeMix getCoffeeMix() {
+        return coffeeMix;
     }
 
-    public void setCoffeMix(CoffeMix coffeMix) {
-        this.coffeMix = coffeMix;
+    public void setCoffeeMix(CoffeeMix coffeeMix) {
+        this.coffeeMix = coffeeMix;
     }
 }
