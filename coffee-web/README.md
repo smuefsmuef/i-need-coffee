@@ -10,7 +10,13 @@ npm i @angular/cli
 (or gobally)
 
 ### Project Scaffolding With Angular CLI
-petra@petra ~/projects/FHNW/kohler-gysin $ ng new coffee-web
+$ ng new coffee-web
+
+Generates model directory
+$ ng generate class coffeMix 
+
+Generate service class 
+$ ng generate service coffeMix-service
 
 ### UI - Material Angular UI
 https://material.angular.io/guide/getting-started
