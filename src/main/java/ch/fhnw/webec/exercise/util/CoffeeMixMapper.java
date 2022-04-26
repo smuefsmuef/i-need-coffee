@@ -8,7 +8,7 @@ public class CoffeeMixMapper {
         coffeeMix.setPricePerKg(coffeeMixDto.getPricePerKg());
         coffeeMix.setRoastDegree(coffeeMixDto.getRoastDegree());
 
-        for (Bean beanDto : coffeeMixDto.getBeans()) {
+        for (BeanDto beanDto : coffeeMixDto.getBeans()) {
                 Bean bean = new Bean();
                 bean.setType(beanDto.getType());
                 bean.setOrigin(beanDto.getOrigin());

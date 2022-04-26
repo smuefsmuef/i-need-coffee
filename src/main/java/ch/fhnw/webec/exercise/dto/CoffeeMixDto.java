@@ -8,8 +8,7 @@ public class CoffeeMixDto {
 
     private long pricePerKg;
     private int roastDegree;
-    private List<Bean> beans;
-    private List<Rating> ratings;
+    private List<BeanDto> beans;
 
     public long getPricePerKg() {
         return pricePerKg;
@@ -27,19 +26,11 @@ public class CoffeeMixDto {
         this.roastDegree = roastDegree;
     }
 
-    public List<Bean> getBeans() {
+    public List<BeanDto> getBeans() {
         return beans;
     }
 
-    public void setBeans(List<Bean> beans) {
+    public void setBeans(List<BeanDto> beans) {
         this.beans = beans;
-    }
-
-    public List<Rating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(List<Rating> ratings) {
-        this.ratings = ratings;
     }
 }
