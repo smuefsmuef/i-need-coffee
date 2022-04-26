@@ -16,19 +16,6 @@ import org.hibernate.annotations.CreationTimestamp;
 @Entity
 public class Rating {
 
-    public Rating() {
-
-    }
-
-    public Rating(Long id, int rating, String name, String review, Long amount, int grind) {
-        this.id = id;
-        this.rating = rating;
-        this.name = name;
-        this.review = review;
-        this.amount = amount;
-        this.grind = grind;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -58,6 +45,19 @@ public class Rating {
 
     @ManyToOne
     private CoffeeMix coffeeMix;
+
+    public Rating() {
+
+    }
+
+    public Rating(Long id, int rating, String name, String review, Long amount, int grind) {
+        this.id = id;
+        this.rating = rating;
+        this.name = name;
+        this.review = review;
+        this.amount = amount;
+        this.grind = grind;
+    }
 
 
     public Long getId() {

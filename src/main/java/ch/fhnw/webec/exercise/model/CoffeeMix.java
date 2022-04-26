@@ -20,21 +20,27 @@ public class CoffeeMix {
     private int roastDegree;
 
     @OneToMany(cascade =CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coffeeMix")
-    private final List<Bean> bean = new ArrayList<>();
+    private final List<Bean> beans = new ArrayList<>();
 
     @OneToMany(cascade =CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "coffeeMix")
-    private final List<Rating> rating = new ArrayList<>();
+    private final List<Rating> ratings = new ArrayList<>();
 
     public CoffeeMix(){
 
     }
 
-    public CoffeeMix(Long id, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
+    public CoffeeMix(Long id, Long pricePerKg, int roastDegree, Bean beans, Rating ratings) {
         this.id = id;
         this.pricePerKg = pricePerKg;
         this.roastDegree = roastDegree;
-        this.bean.add(bean);
-        this.rating.add(rating);
+        this.beans.add(beans);
+        this.ratings.add(ratings);
+    }
+
+    public CoffeeMix addBean(Bean bean) {
+        this.beans.add(bean);
+        bean.setCoffeeMix(this);
+        return this;
     }
 
     public Long getId() {
@@ -59,5 +65,13 @@ public class CoffeeMix {
 
     public void setRoastDegree(int roastDegree) {
         this.roastDegree = roastDegree;
+    }
+
+    public List<Bean> getBeans() {
+        return beans;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
     }
 }
