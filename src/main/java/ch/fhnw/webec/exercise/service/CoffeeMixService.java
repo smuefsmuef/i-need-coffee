@@ -36,6 +36,6 @@ public class CoffeeMixService {
 
     public CoffeeMixRepository getCoffeeMixRepository() {return coffeeMixRepository;}
 
-
+    /*TODO: add method "getCoffeeMixList"*/
 
 }
