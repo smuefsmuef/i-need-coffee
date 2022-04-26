@@ -6,7 +6,6 @@ import java.util.*;
 
 @Entity
 public class CoffeeMix {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -23,13 +22,13 @@ public class CoffeeMix {
     @Max(5)
     private int roastDegree;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coffeeMix")
-    private final List<Bean> bean = new ArrayList<>();
+    @OneToMany(cascade =CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "coffeeMix")
+    private final List<Bean> beans = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "coffeeMix")
-    private final List<Rating> rating = new ArrayList<>();
+    @OneToMany(cascade =CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true, mappedBy = "coffeeMix")
+    private final List<Rating> ratings = new ArrayList<>();
 
-    public CoffeeMix() {
+    public CoffeeMix(){
 
     }
 
@@ -38,8 +37,14 @@ public class CoffeeMix {
         this.name = name;
         this.pricePerKg = pricePerKg;
         this.roastDegree = roastDegree;
-        this.bean.add(bean);
-        this.rating.add(rating);
+        this.beans.add(beans);
+        this.ratings.add(ratings);
+    }
+
+    public CoffeeMix addBean(Bean bean) {
+        this.beans.add(bean);
+        bean.setCoffeeMix(this);
+        return this;
     }
 
     public Long getId() {
@@ -72,5 +77,13 @@ public class CoffeeMix {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Bean> getBeans() {
+        return beans;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
     }
 }

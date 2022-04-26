@@ -21,6 +21,12 @@ public class Bean {
     @ManyToOne(fetch = FetchType.LAZY)
     private CoffeeMix coffeeMix;
 
+    public Bean() {
+    }
+
+    public Bean(String type, String origin, int altitude) {
+    }
+
     public Long getId() {
         return id;
     }
@@ -51,5 +57,11 @@ public class Bean {
 
     public void setAltitude(int altitude) {
         this.altitude = altitude;
+    }
+
+    public CoffeeMix getCoffeeMix() {return coffeeMix;}
+
+    public void setCoffeeMix(CoffeeMix coffeeMix) {
+        this.coffeeMix = coffeeMix;
     }
 }
