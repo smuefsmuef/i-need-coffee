@@ -30,7 +30,7 @@ public class CoffeeMixController {
     @GetMapping("/coffeemixes")
     public String getCoffeeMixList(String search, Model model) {
         checkSearch(search);
-        model.addAttribute("coffeeMixList", coffeeMixService.getCoffeeMixList(search));
+//        model.addAttribute("coffeeMixList", coffeeMixService.getCoffeeMixList(search));
         return "coffeemixes";
     }
 
@@ -43,7 +43,7 @@ public class CoffeeMixController {
     @ExceptionHandler(InvalidSearch.class)
     @ResponseStatus(BAD_REQUEST)
     public String invalidSearch(Model model) {
-        model.addAttribute("coffeeMixList", coffeeMixService.getCoffeeMixList(null));
+//        model.addAttribute("coffeeMixList", coffeeMixService.getCoffeeMixList(null));
         model.addAttribute("errorMessage",
             "Search text must have at least %s characters".formatted(minSearchLength));
         return "coffeemixes";
@@ -52,7 +52,7 @@ public class CoffeeMixController {
     @ExceptionHandler(CoffeeMixNotFound.class)
     @ResponseStatus(NOT_FOUND)
     public String notFound(Model model) {
-        model.addAttribute("coffeMixList", coffeeMixService.getCoffeeMixList(null));
+//        model.addAttribute("coffeMixList", coffeeMixService.getCoffeeMixList(null));
         model.addAttribute("errorMessage", "Coffemix not found");
         return "coffeemixes";
     }

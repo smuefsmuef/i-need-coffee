@@ -20,7 +20,7 @@ public class CoffeeMixService {
 
     public long countCoffeeMixes() {return this.coffeeMixRepository.count();}
 
-    public CoffeeMix addCoffeeMix(CoffeeMixDto coffeeMixDto) {
+    public CoffeeMix save(CoffeeMixDto coffeeMixDto) {
         var coffeeMix = new CoffeeMix();
         new CoffeeMixMapper().mapToCoffeeMix(coffeeMix, coffeeMixDto);
         return add(coffeeMix);

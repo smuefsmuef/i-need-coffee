@@ -4,7 +4,7 @@
 
 ### Team members
 
-TODO: Write the names of the team members here
+Petra Kohler & Jonas Gysin
 
 ### Description
 
@@ -12,7 +12,8 @@ TODO: Write around a 5 sentence description of your idea and the entities you in
 
 ### Individual
 
-TODO: Write the two individual focus areas you implement here
+Authentication & Authorization
+Rich-Client with JS
 
 ## Installation and run instructions
 

@@ -37,8 +37,8 @@ public class CoffeeMix {
         this.name = name;
         this.pricePerKg = pricePerKg;
         this.roastDegree = roastDegree;
-        this.beans.add(beans);
-        this.ratings.add(ratings);
+        this.beans.add(bean);
+        this.ratings.add(rating);
     }
 
     public CoffeeMix addBean(Bean bean) {
