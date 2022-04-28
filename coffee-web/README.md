@@ -18,6 +18,9 @@ $ ng generate class coffeMix
 Generate service class 
 $ ng generate service coffeMix-service
 
+Generate component
+$ ng generate component about
+
 ### UI - Material Angular UI
 https://material.angular.io/guide/getting-started
 
