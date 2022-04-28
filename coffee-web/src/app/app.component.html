@@ -1,0 +1,20 @@
+<div class="container">
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button routerLink="/coffeemixes" class="coffee-mix-icon" aria-label="icon-button">
+      <img width="35" alt="Coffee Bean Logo" src="assets/img/coffee-bean.png"/>
+    </button>
+    <span>{{ title }}</span>
+    <span class="spacer"></span>
+
+    <button mat-raised-button color="accent" [matMenuTriggerFor]="dropDownMenu">Coffee Mix</button>
+    <mat-menu #dropDownMenu="matMenu" yPosition="below">
+      <button mat-menu-item routerLink="/coffeemixes">Overview</button>
+      <button mat-menu-item routerLink="/addcoffeemix">Add</button>
+    </mat-menu>
+
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+
+</div>

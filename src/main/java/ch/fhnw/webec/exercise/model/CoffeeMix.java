@@ -12,6 +12,9 @@ public class CoffeeMix {
     private Long id;
 
     @Column
+    private String name;
+
+    @Column
     private Long pricePerKg;
 
     @Column
@@ -29,8 +32,9 @@ public class CoffeeMix {
 
     }
 
-    public CoffeeMix(Long id, Long pricePerKg, int roastDegree, Bean beans, Rating ratings) {
+    public CoffeeMix(Long id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
         this.id = id;
+        this.name = name;
         this.pricePerKg = pricePerKg;
         this.roastDegree = roastDegree;
         this.beans.add(beans);
@@ -65,6 +69,14 @@ public class CoffeeMix {
 
     public void setRoastDegree(int roastDegree) {
         this.roastDegree = roastDegree;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Bean> getBeans() {
