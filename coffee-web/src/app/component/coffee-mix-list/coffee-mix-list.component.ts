@@ -18,6 +18,7 @@ export class CoffeeMixListComponent implements OnInit {
 
   ngOnInit() {
     this.coffeeMixService.findAll().subscribe((data: CoffeeMix[] | undefined) => {
+       console.log('juhuu data hier', data)
       this.coffeeMixes = data;
     });
   }
