@@ -10,6 +10,8 @@ import org.springframework.http.*;
 import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.*;
+import org.springframework.security.core.Authentication;
+
 
 import javax.validation.*;
 import java.util.*;
@@ -123,7 +125,7 @@ public class RESTCoffeeMixController {
         if (bindingResult.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         } else {
-            Document.p
+            System.out.println("binding result is ok / ln 127 RESTCoffeeMixController");
 //            rating.setUser((User) this.userService.loadUserByUsername(authentication.getName()));
 //            rating.setCoffeeMix(coffeeMix);
 

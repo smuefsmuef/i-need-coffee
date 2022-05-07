@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
 import java.util.Optional;
 import java.util.Set;
+import org.springframework.security.core.Authentication;
+
 
 @Controller
 public class LoginController {
