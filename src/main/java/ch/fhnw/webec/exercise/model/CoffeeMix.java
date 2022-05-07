@@ -32,7 +32,7 @@ public class CoffeeMix {
 
     }
 
-    public CoffeeMix(Long id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
+    public CoffeeMix(int id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
         this.id = id;
         this.name = name;
         this.pricePerKg = pricePerKg;
@@ -47,11 +47,11 @@ public class CoffeeMix {
         return this;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
