@@ -1,8 +1,11 @@
 package ch.fhnw.webec.exercise.service;
 
 import ch.fhnw.webec.exercise.model.*;
+import ch.fhnw.webec.exercise.model.User;
 import ch.fhnw.webec.exercise.repositories.*;
 
+import org.springframework.security.core.userdetails.*;
+import org.springframework.security.crypto.password.*;
 import org.springframework.stereotype.Service;
 import java.util.Set;
 

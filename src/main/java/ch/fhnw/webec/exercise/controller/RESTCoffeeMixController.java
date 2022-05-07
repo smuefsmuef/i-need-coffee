@@ -6,7 +6,6 @@ import ch.fhnw.webec.exercise.service.*;
 import io.swagger.v3.oas.annotations.media.*;
 import io.swagger.v3.oas.annotations.responses.*;
 import io.swagger.v3.oas.annotations.tags.*;
-import org.apache.tomcat.util.net.openssl.ciphers.*;
 import org.springframework.http.*;
 import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;

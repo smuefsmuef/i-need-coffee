@@ -1,5 +1,7 @@
 package ch.fhnw.webec.exercise.controller;
 
+import ch.fhnw.webec.exercise.model.*;
+import ch.fhnw.webec.exercise.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
