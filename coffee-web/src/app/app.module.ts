@@ -18,34 +18,32 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CoffeeMixListComponent } from './component/coffee-mix-list/coffee-mix-list.component';
-import { CoffeeMixFormComponent } from './component/coffee-mix-form/coffee-mix-form.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {OverviewComponent} from './component/overview/overview.component';
 
-import { HttpClientModule } from '@angular/common/http';
-import { CoffeeMixService } from './service/coffee-mix-service';
+import {HttpClientModule} from '@angular/common/http';
+import {CoffeeMixService} from './service/coffee-mix-service';
 
-import { AboutComponent } from './component/about/about.component';
-import { ProfileComponent } from './component/profile/profile.component';
+import {AboutComponent} from './component/about/about.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
-import { CommonModule } from '@angular/common';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule } from '@angular/material/card';
-import { CoffeeMixDetailComponent } from './component/coffee-mix-detail/coffee-mix-detail.component';
-
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {CommonModule} from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {DetailComponent} from './component/detail/detail.component';
+import {AddCoffeeMixComponent} from './component/add-coffee-mix/add-coffee-mix.component';
+import {PageNotFoundComponent} from './component/page-not-found/page-not-found.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoffeeMixListComponent,
-    CoffeeMixFormComponent,
+    OverviewComponent,
+    AddCoffeeMixComponent,
     AboutComponent,
-    ProfileComponent,
-    CoffeeMixDetailComponent
+    DetailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

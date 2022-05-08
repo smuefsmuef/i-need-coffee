@@ -7,17 +7,22 @@ import { CoffeeMix } from '../model/coffee-mix';
 @Injectable()
 export class CoffeeMixService {
 
-  private coffeMixesUrl: string;
+  private coffeeMixUrl: string;
 
   constructor(private http: HttpClient) {
-    this.coffeMixesUrl = 'http://localhost:8080/coffeemixes';
+    this.coffeeMixUrl = 'http://localhost:8080/api/coffeemix';
   }
 
   public findAll(): Observable<CoffeeMix[]> {
-    return this.http.get<CoffeeMix[]>(this.coffeMixesUrl);
+    return this.http.get<CoffeeMix[]>(this.coffeeMixUrl);
   }
 
   public save(coffeeMix: CoffeeMix) {
-    return this.http.post<CoffeeMix>(this.coffeMixesUrl, CoffeeMix);
+    return this.http.post<CoffeeMix>(this.coffeeMixUrl, CoffeeMix);
+  }
+
+  public findCoffeeMixById(id: number): Observable<CoffeeMix> {
+    console.log('find by id service works', id)
+    return this.http.get<CoffeeMix>(`${this.coffeeMixUrl}/${id}`)
   }
 }

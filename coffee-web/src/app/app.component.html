@@ -1,7 +1,7 @@
 <div class="container">
 
-  <mat-toolbar color="accent">
-    <button mat-icon-button routerLink="/coffeemixes" class="coffee-mix-icon" aria-label="icon-button">
+  <mat-toolbar class="app-navbar" color="accent">
+    <button aria-label="icon-button" class="coffee-mix-icon" mat-icon-button routerLink="">
       <img width="35" alt="Coffee Bean Logo" src="assets/img/coffee-bean.png"/>
     </button>
     <span>{{ title }}</span>
@@ -11,17 +11,17 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/addcoffeemix">
+      <button mat-menu-item routerLink="">
+        <mat-icon>houseboat</mat-icon>
+        <span>Overview</span>
+      </button>
+      <button mat-menu-item routerLink="/add">
         <mat-icon>add_circle_outline</mat-icon>
         <span>Add Coffee Mix</span>
       </button>
       <button mat-menu-item routerLink="/about">
         <mat-icon>subject</mat-icon>
         <span>About</span>
-      </button>
-      <button mat-menu-item routerLink="/profile">
-        <mat-icon>face</mat-icon>
-        <span>Profile</span>
       </button>
       <button mat-menu-item routerLink="/login">
         <mat-icon>exit_to_appff</mat-icon>
