@@ -9,7 +9,7 @@ public class CoffeeMix {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
-    private Long id;
+    private int id;
 
     @Column
     private String name;
@@ -32,13 +32,13 @@ public class CoffeeMix {
 
     }
 
-    public CoffeeMix(Long id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
+    public CoffeeMix(int id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
         this.id = id;
         this.name = name;
         this.pricePerKg = pricePerKg;
         this.roastDegree = roastDegree;
-        this.beans.add(beans);
-        this.ratings.add(ratings);
+        this.beans.add(bean);
+        this.ratings.add(rating);
     }
 
     public CoffeeMix addBean(Bean bean) {
@@ -47,11 +47,11 @@ public class CoffeeMix {
         return this;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

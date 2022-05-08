@@ -2,6 +2,8 @@ package ch.fhnw.webec.exercise.dto;
 
 import javax.persistence.*;
 
+// todo eventuell löschen
+
 public class BeanDto {
     private String type;
     private String origin;

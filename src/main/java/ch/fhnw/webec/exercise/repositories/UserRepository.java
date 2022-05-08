@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.*;
 
 import java.util.*;
 
-public interface RatingRepository extends JpaRepository<Rating, Integer> {
-    List<Rating> findByCoffeeMixId(int id);
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByUsername(String username);
 }
