@@ -1,6 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container-card {
+  width: 80%;
+  margin: 50px auto 0px auto;
+}
+
+.mat-card {
+  margin-top: 100px;
+}
+
+.mat-toolbar.mat-accent {
+  background: #c6805e;
+}

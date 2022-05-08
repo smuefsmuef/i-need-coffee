@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CoffeeMixFormComponent } from './coffee-mix-form.component';
+import { AboutComponent } from './about.component';
 
-describe('CoffeeMixFormComponent', () => {
-  let component: CoffeeMixFormComponent;
-  let fixture: ComponentFixture<CoffeeMixFormComponent>;
+describe('AboutComponent', () => {
+  let component: AboutComponent;
+  let fixture: ComponentFixture<AboutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CoffeeMixFormComponent ]
+      declarations: [ AboutComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CoffeeMixFormComponent);
+    fixture = TestBed.createComponent(AboutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

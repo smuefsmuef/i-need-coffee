@@ -4,11 +4,11 @@ import { CoffeeMix } from '../../model/coffee-mix';
 import { CoffeeMixService } from '../../service/coffee-mix-service';
 
 @Component({
-  selector: 'app-coffee-mix-form',
-  templateUrl: './coffee-mix-form.component.html',
-  styleUrls: ['./coffee-mix-form.component.css']
+  selector: 'app-add-coffee-mix',
+  templateUrl: './add-coffee-mix.component.html',
+  styleUrls: ['./add-coffee-mix.component.css']
 })
-export class CoffeeMixFormComponent {
+export class AddCoffeeMixComponent {
 
   coffeeMix: CoffeeMix;
 
@@ -20,10 +20,11 @@ export class CoffeeMixFormComponent {
   }
 
   onSubmit() {
-    this.coffeeMixService.save(this.coffeeMix).subscribe(() => this.gotoCoffeeMixist());
+    this.coffeeMixService.save(this.coffeeMix).subscribe(() => this.gotoCoffeeOverview());
   }
 
-  gotoCoffeeMixist() {
-    this.router.navigate(['/coffeemixes']);
+  gotoCoffeeOverview() {
+    //  this.router.navigate(['/coffeemix']);
+    this.router.navigate(['']).then(r => console.log(r));
   }
 }

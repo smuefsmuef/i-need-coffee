@@ -1,0 +1,63 @@
+<div class="container-card">
+
+  <mat-card class="example-card">
+
+    <mat-card-title>Overview</mat-card-title>
+
+    <mat-card-subtitle>last updatelasdlalsd sdasd .</mat-card-subtitle>
+
+    <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th *matHeaderCellDef mat-header-cell> Id</th>
+        <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell> Name</th>
+        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+      </ng-container>
+
+      <!-- pricePerKg Column -->
+      <ng-container matColumnDef="pricePerKg">
+        <th *matHeaderCellDef mat-header-cell> Price/Kg</th>
+        <td *matCellDef="let element" mat-cell> {{element.pricePerKg}} </td>
+      </ng-container>
+
+      <!-- roastDegree Column -->
+      <ng-container matColumnDef="roastDegree">
+        <th *matHeaderCellDef mat-header-cell> Roast Degree</th>
+        <td *matCellDef="let element" mat-cell> {{element.roastDegree}} </td>
+      </ng-container>
+
+      <!-- ratings Column -->
+      <ng-container matColumnDef="ratings">
+        <th *matHeaderCellDef mat-header-cell> Rating</th>
+        <td *matCellDef="let element" mat-cell> {{element.ratings}} </td>
+      </ng-container>
+
+      <!-- link to Detail -->
+      <ng-container matColumnDef="link">
+        <th *matHeaderCellDef mat-header-cell> More</th>
+        <td *matCellDef="let element" mat-cell>
+          <button aria-label="icon-button" class="coffee-mix-icon" mat-icon-button
+                  routerLink="/coffeemix/{{element.id}}">
+            <mat-icon>more_horiz</mat-icon>
+          </button>
+        </td>
+
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
+
+    <mat-card-actions>
+      <button aria-label="icon-button" color="primary" mat-button routerLink="/add">
+        NEW COFFEE MIX
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
