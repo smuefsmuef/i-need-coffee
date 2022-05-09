@@ -2,12 +2,17 @@
 
   <mat-card class="example-card">
 
-    <mat-card-title>Overview</mat-card-title>
+    <mat-card-title>Overview - My Coffee Mixes</mat-card-title>
 
     <mat-card-subtitle>last updatelasdlalsd sdasd .</mat-card-subtitle>
 
-    <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+    <mat-card-actions>
+      <button aria-label="icon-button" color="primary" mat-raised-button routerLink="/add">
+        Add Coffee Mix
+      </button>
+    </mat-card-actions>
 
+    <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th *matHeaderCellDef mat-header-cell> Id</th>
@@ -35,16 +40,21 @@
       <!-- ratings Column -->
       <ng-container matColumnDef="ratings">
         <th *matHeaderCellDef mat-header-cell> Rating</th>
-        <td *matCellDef="let element" mat-cell> {{element.ratings}} </td>
+        <td *matCellDef="let element" mat-cell>
+          5/6 (22 Ratings)
+          <button (click)="openDialog(element)" aria-label="icon-button" class="coffee-mix-icon" mat-icon-button>
+            <mat-icon class="brown">add_circle_outline</mat-icon>
+          </button>
+        </td>
       </ng-container>
 
       <!-- link to Detail -->
       <ng-container matColumnDef="link">
-        <th *matHeaderCellDef mat-header-cell> More</th>
-        <td *matCellDef="let element" mat-cell>
+        <th *matHeaderCellDef mat-header-cell></th>
+        <td *matCellDef="let element" align="right" mat-cell>
           <button aria-label="icon-button" class="coffee-mix-icon" mat-icon-button
                   routerLink="/coffeemix/{{element.id}}">
-            <mat-icon>more_horiz</mat-icon>
+            <mat-icon class="brown">read_more</mat-icon>
           </button>
         </td>
 
@@ -53,11 +63,7 @@
       <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
     </table>
 
-    <mat-card-actions>
-      <button aria-label="icon-button" color="primary" mat-button routerLink="/add">
-        NEW COFFEE MIX
-      </button>
-    </mat-card-actions>
+
   </mat-card>
 </div>
 

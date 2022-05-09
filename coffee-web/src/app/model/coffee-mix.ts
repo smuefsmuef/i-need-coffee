@@ -6,3 +6,5 @@ export class CoffeeMix {
   beans: any | undefined;
   ratings: any | undefined;
 }
+
+// todo add origin

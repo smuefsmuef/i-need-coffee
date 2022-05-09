@@ -20,6 +20,7 @@ export class AddCoffeeMixComponent {
   }
 
   onSubmit() {
+    console.log('submit add', this.coffeeMix)
     this.coffeeMixService.save(this.coffeeMix).subscribe(() => this.gotoCoffeeOverview());
   }
 
