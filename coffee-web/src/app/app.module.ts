@@ -34,6 +34,9 @@ import {MatCardModule} from '@angular/material/card';
 import {DetailComponent} from './component/detail/detail.component';
 import {AddCoffeeMixComponent} from './component/add-coffee-mix/add-coffee-mix.component';
 import {PageNotFoundComponent} from './component/page-not-found/page-not-found.component';
+import {RatingDialogComponent} from './component/overview/rating-dialog/rating-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSliderModule} from "@angular/material/slider";
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import {PageNotFoundComponent} from './component/page-not-found/page-not-found.c
     AddCoffeeMixComponent,
     AboutComponent,
     DetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    RatingDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,9 @@ import {PageNotFoundComponent} from './component/page-not-found/page-not-found.c
     MatPaginatorModule,
     MatMenuModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatSliderModule
   ],
   exports: [
     MatButtonModule,

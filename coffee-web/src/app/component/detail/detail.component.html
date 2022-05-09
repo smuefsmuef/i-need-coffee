@@ -4,32 +4,80 @@
 
     <mat-card-title>Coffee Mix Detail</mat-card-title>
 
-    <mat-card-subtitle>id 1.</mat-card-subtitle>
+    <mat-card-subtitle>Stammdaten</mat-card-subtitle>
 
     <mat-card-content>
-      <form class="form">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Outline form field</mat-label>
-          <input matInput placeholder="Placeholder" value="sushis">
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-hint>Hint</mat-hint>
-        </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>id</mat-label>
+        <input [(ngModel)]="coffeeMix.id" matInput required>
+      </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Leave a comment</mat-label>
-          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-        </mat-form-field>
-      </form>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="coffeeMix.name" matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>pricePerKg</mat-label>
+        <input [(ngModel)]="coffeeMix.pricePerKg" matInput required type="number">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>roastDegree</mat-label>
+        <input [(ngModel)]="coffeeMix.roastDegree" matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Beans</mat-label>
+        <input [(ngModel)]="coffeeMix.beans" matInput>
+        <!--     todo   select-->
+      </mat-form-field>
+
     </mat-card-content>
+
 
     <mat-card-actions>
       <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
         UPDATE
+        <!--        todo disable, wenn nicht editierbar/editiert-->
       </button>
       <button aria-label="icon-button" color="primary" mat-button routerLink="">
-        CANCEL
+        BACK
       </button>
     </mat-card-actions>
+
+
+    <mat-card-subtitle>Reviews</mat-card-subtitle>
+    <!--    todo info liste mit reviews wie bei dialog, nicht editierbar
+       todo aber auch zeige rating an , erstellen aber nur auf der haupzseite-->
+    <table [dataSource]="dataSource" class="mat-elevation-z8 rating-list" mat-table>
+      <ng-container matColumnDef="rating">
+        <th *matHeaderCellDef mat-header-cell> Rating</th>
+        <td *matCellDef="let element" mat-cell> {{element.rating}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef mat-header-cell> Name</th>
+        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="review">
+        <th *matHeaderCellDef mat-header-cell> Comment</th>
+        <td *matCellDef="let element" mat-cell> {{element.review}} </td>
+      </ng-container>
+      <ng-container matColumnDef="amount">
+        <th *matHeaderCellDef mat-header-cell> Amount</th>
+        <td *matCellDef="let element" mat-cell> {{element.amount}} </td>
+      </ng-container>
+      <ng-container matColumnDef="grind">
+        <th *matHeaderCellDef mat-header-cell> Grind Level</th>
+        <td *matCellDef="let element" mat-cell> {{element.grind}} </td>
+      </ng-container>
+      <ng-container matColumnDef="createdDate">
+        <th *matHeaderCellDef mat-header-cell> Date</th>
+        <td *matCellDef="let element" mat-cell> {{element.createdDate}} </td>
+      </ng-container>
+      <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+    </table>
   </mat-card>
 </div>
 

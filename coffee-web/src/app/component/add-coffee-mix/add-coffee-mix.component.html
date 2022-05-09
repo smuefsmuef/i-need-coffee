@@ -2,30 +2,40 @@
 
   <mat-card class="example-card">
 
-    <mat-card-title>Add</mat-card-title>
+    <mat-card-title>Add new Coffee Mix</mat-card-title>
 
     <mat-card-content>
-      <form class="form">
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Outline form field</mat-label>
-          <input matInput placeholder="Placeholder" value="sushis">
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-          <mat-hint>Hint</mat-hint>
-        </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Leave a comment</mat-label>
-          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
-        </mat-form-field>
-      </form>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="coffeeMix.name" matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>pricePerKg</mat-label>
+        <input [(ngModel)]="coffeeMix.pricePerKg" matInput required type="number">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>roastDegree</mat-label>
+        <input [(ngModel)]="coffeeMix.roastDegree" matInput required>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Beans</mat-label>
+        <input [(ngModel)]="coffeeMix.beans" matInput>
+        <!--     todo   select-->
+      </mat-form-field>
+
     </mat-card-content>
 
     <mat-card-actions>
-      <button aria-label="icon-button" color="primary" mat-raised-button>
-        SAVE
+      <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
+        CREATE
+        <!--        todo disable, wenn nicht editierbar/editiert-->
       </button>
       <button aria-label="icon-button" color="primary" mat-button routerLink="">
-        CANCEL
+        BACK
       </button>
     </mat-card-actions>
   </mat-card>

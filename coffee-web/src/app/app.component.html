@@ -3,8 +3,8 @@
   <mat-toolbar class="app-navbar" color="accent">
     <button aria-label="icon-button" class="coffee-mix-icon" mat-icon-button routerLink="">
       <img width="35" alt="Coffee Bean Logo" src="assets/img/coffee-bean.png"/>
+      <span>{{ title }}</span>
     </button>
-    <span>{{ title }}</span>
     <span class="spacer"></span>
 
     <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu of our Coffee Rating Application">
