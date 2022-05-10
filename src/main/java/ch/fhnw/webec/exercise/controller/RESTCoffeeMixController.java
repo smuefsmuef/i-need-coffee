@@ -1,11 +1,13 @@
 package ch.fhnw.webec.exercise.controller;
 
 import ch.fhnw.webec.exercise.model.*;
-import ch.fhnw.webec.exercise.repositories.*;
+import ch.fhnw.webec.exercise.repository.*;
 import io.swagger.v3.oas.annotations.media.*;
 import io.swagger.v3.oas.annotations.responses.*;
 import io.swagger.v3.oas.annotations.tags.*;
 import org.springframework.http.*;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.ui.Model;
 import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.*;
@@ -78,6 +80,8 @@ public class RESTCoffeeMixController {
         this.coffeeMixRepository.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+
 
     // Get Ratings of a Coffee Mix by id
     @RequestMapping(path = "{id}/ratings", method = RequestMethod.GET)
