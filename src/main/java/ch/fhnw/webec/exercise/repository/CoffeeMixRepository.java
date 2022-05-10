@@ -1,13 +1,12 @@
-package ch.fhnw.webec.exercise.repositories;
+package ch.fhnw.webec.exercise.repository;
 
 import ch.fhnw.webec.exercise.model.*;
+import java.util.List;
 import org.springframework.data.jpa.repository.*;
-import org.springframework.data.repository.query.*;
-
-import java.util.*;
+import org.springframework.data.repository.query.Param;
 
 public interface CoffeeMixRepository extends JpaRepository<CoffeeMix, Integer> {
-
+// tododelete
 //    @Query("""
 //        SELECT DISTINCT coffeemix FROM CoffeeMix coffeemix
 //        INNER JOIN coffeemix.beans bean
@@ -16,7 +15,7 @@ public interface CoffeeMixRepository extends JpaRepository<CoffeeMix, Integer> {
 //            OR lower(coffeemix.pricePerKg) LIKE lower(concat('%', :search, '%'))
 //            """)
 
-//    List<CoffeeMix> findBySearch(@Param("search") String search);
+  // List<CoffeeMix> findBySearch(@Param("search") String search);
 
 }
 

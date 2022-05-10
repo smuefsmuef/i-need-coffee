@@ -1,5 +1,6 @@
 package ch.fhnw.webec.exercise.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
@@ -18,47 +19,44 @@ public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column
     @Min(1)
-    @Max(10)
+    @Max(5)
+    @NotEmpty
     private int rating;
 
     @NotEmpty
     private String name;
 
     @Column(columnDefinition = "TEXT")
+    @NotEmpty
     private String review;
 
-    @Column
     private Long amount;
 
-    @Column
     @Min(1)
-    @Max(5)
+    @Max(10)
     private int grind;
 
     @CreationTimestamp
     private LocalDate createdDate;
 
     @ManyToOne
+    @JsonIgnore
     private CoffeeMix coffeeMix;
 
     public Rating() {
-
     }
 
-    public Rating(Long id, int rating, String name, String review, Long amount, int grind) {
+    public Rating(int rating, String name, String review) {
         this.id = id;
         this.rating = rating;
         this.name = name;
         this.review = review;
-        this.amount = amount;
-        this.grind = grind;
     }
 
+    // Getter und Setter
 
     public Long getId() {
         return id;
@@ -67,7 +65,6 @@ public class Rating {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public int getRating() {
         return rating;
@@ -123,5 +120,7 @@ public class Rating {
 
     public void setCoffeeMix(CoffeeMix coffeeMix) {
         this.coffeeMix = coffeeMix;
+        this.coffeeMix.addRating(this);
     }
+
 }

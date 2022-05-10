@@ -1,31 +1,36 @@
 package ch.fhnw.webec.exercise.model;
 
+import ch.fhnw.webec.exercise.form.BeanOption;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-public class Bean {
+public class Bean implements BeanOption {
+
+    // todo implement select
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
 
-    @Column
     private String type;
 
-    @Column
     private String origin;
 
-    @Column
     private int altitude;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CoffeeMix coffeeMix;
-
-    public Bean() {
+    @Override
+    @JsonIgnore
+    public String getValue() {
+        return String.valueOf(this.getId());
     }
 
-    public Bean(String type, String origin, int altitude) {
+    @Override
+    @JsonIgnore
+    public String getLabel() {
+        return this.getType();
     }
+
+    // Getter & Setter
 
     public Long getId() {
         return id;
@@ -59,9 +64,4 @@ public class Bean {
         this.altitude = altitude;
     }
 
-    public CoffeeMix getCoffeeMix() {return coffeeMix;}
-
-    public void setCoffeeMix(CoffeeMix coffeeMix) {
-        this.coffeeMix = coffeeMix;
-    }
 }
