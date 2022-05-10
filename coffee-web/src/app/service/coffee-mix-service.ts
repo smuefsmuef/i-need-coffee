@@ -11,7 +11,7 @@ export class CoffeeMixService {
   private coffeeMixUrl: string;
 
   constructor(private http: HttpClient) {
-    this.coffeeMixUrl = 'http://localhost:8080/api/coffeemix';
+    this.coffeeMixUrl = 'http://localhost:8080/api/coffeemixes';
   }
 
   public findAll(): Observable<CoffeeMix[]> {
@@ -19,7 +19,7 @@ export class CoffeeMixService {
   }
 
   public save(coffeeMix: CoffeeMix) {
-    return this.http.post<CoffeeMix>(this.coffeeMixUrl, CoffeeMix);
+    return this.http.post<CoffeeMix>(this.coffeeMixUrl, coffeeMix);
   }
 
   public findCoffeeMixById(id: number): Observable<CoffeeMix> {
@@ -29,6 +29,6 @@ export class CoffeeMixService {
 
   public addRating(rating: Rating): Observable<Rating> {
     console.log('find by id service works')
-    return this.http.patch<Rating>(`${this.coffeeMixUrl}`, Rating)
+    return this.http.patch<Rating>(`${this.coffeeMixUrl}`, rating)
   }
 }
