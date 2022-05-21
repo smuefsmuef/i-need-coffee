@@ -1,9 +1,25 @@
 package ch.fhnw.webec.exercise.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.OrderBy;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotEmpty;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class CoffeeMix {
@@ -20,16 +36,21 @@ public class CoffeeMix {
     @Max(5)
     private int roastDegree;
 
-    @NotEmpty
     @ManyToMany
     @OrderBy("origin ASC")
     private Set<Bean> beans = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "coffeeMix")
-    @OrderBy("createdDate DESC")
+    @OrderBy("createdDateTime DESC")
     @JsonIgnore
     private List<Rating> ratings = new ArrayList<>();
 
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdDateTime;
+
+    @UpdateTimestamp
+    private LocalDateTime updateDateTime;
 
     public CoffeeMix(){ }
 

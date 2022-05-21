@@ -1,7 +1,6 @@
 package ch.fhnw.webec.exercise.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +12,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Rating {
@@ -40,7 +40,12 @@ public class Rating {
     private int grind;
 
     @CreationTimestamp
-    private LocalDate createdDate;
+    @Column(updatable = false)
+    private LocalDateTime createdDateTime;
+
+    @UpdateTimestamp
+    private LocalDateTime updateDateTime;
+
 
     @ManyToOne
     @JsonIgnore
@@ -56,7 +61,19 @@ public class Rating {
         this.review = review;
     }
 
-    // Getter und Setter
+    public Rating(Long id, int rating, String name, String review, Long amount, int grind,
+        LocalDateTime createdDateTime, LocalDateTime updateDateTime, CoffeeMix coffeeMix) {
+        this.id = id;
+        this.rating = rating;
+        this.name = name;
+        this.review = review;
+        this.amount = amount;
+        this.grind = grind;
+        this.createdDateTime = createdDateTime;
+        this.updateDateTime = updateDateTime;
+        this.coffeeMix = coffeeMix;
+    }
+// Getter und Setter
 
     public Long getId() {
         return id;
@@ -106,12 +123,20 @@ public class Rating {
         this.grind = grind;
     }
 
-    public LocalDate getCreatedDate() {
-        return createdDate;
+    public LocalDateTime getCreatedDateTime() {
+        return createdDateTime;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedDateTime(LocalDateTime createdDateTime) {
+        this.createdDateTime = createdDateTime;
+    }
+
+    public LocalDateTime getUpdateDateTime() {
+        return updateDateTime;
+    }
+
+    public void setUpdateDateTime(LocalDateTime updateDateTime) {
+        this.updateDateTime = updateDateTime;
     }
 
     public CoffeeMix getCoffeeMix() {
