@@ -12,7 +12,7 @@
       </button>
     </mat-card-actions>
 
-    <table [dataSource]="dataSource" class="mat-elevation-z8" mat-table>
+    <table [dataSource]="coffeeMixes" class="mat-elevation-z8" mat-table>
       <!-- ID Column -->
       <ng-container matColumnDef="id">
         <th *matHeaderCellDef mat-header-cell> Id</th>
@@ -41,7 +41,7 @@
       <ng-container matColumnDef="ratings">
         <th *matHeaderCellDef mat-header-cell> Rating</th>
         <td *matCellDef="let element" mat-cell>
-          5/6 (22 Ratings)
+          {{element.averageRating}}/6
           <button (click)="openDialog(element)" aria-label="icon-button" class="coffee-mix-icon" mat-icon-button>
             <mat-icon class="brown">add_circle_outline</mat-icon>
           </button>

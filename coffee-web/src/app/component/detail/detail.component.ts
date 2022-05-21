@@ -25,32 +25,35 @@ const ELEMENT_DATA: Rating[] =// testdata
 
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.css']
+  selector: 'app-detail', templateUrl: './detail.component.html', styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
   coffeeMix: CoffeeMix;
   editMode: boolean = false;
+  dataSource: any;
+  coffeeMixId: number
 
   // table
   displayedColumns: string[] = ['rating', 'name', 'review', 'amount', 'grind', 'createdDate'];
-  dataSource = ELEMENT_DATA; // ratings todo adjust
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private coffeeMixService: CoffeeMixService) {
+  constructor(private route: ActivatedRoute, private router: Router, private coffeeMixService: CoffeeMixService) {
     this.coffeeMix = new CoffeeMix();
   }
 
   ngOnInit(): void {
-    this.coffeeMixService.findCoffeeMixById(2222); // todo get id out of route and populate data coffeemix
+    this.route.params.subscribe(value => {
+      this.coffeeMixId = value['id'];
+    });
+
+    this.coffeeMixService.findCoffeeMixById(this.coffeeMixId).subscribe((data: CoffeeMix | undefined) => {
+      this.coffeeMix = data;
+      this.dataSource = this.coffeeMix.ratings
+    });
   }
 
   onSubmit() {
-    console.log('submit patch', this.coffeeMix) // todo patch/put
-    this.coffeeMixService.save(this.coffeeMix).subscribe(() => this.gotoCoffeeOverview());
+    console.log('submit patch', this.coffeeMix)
+    this.coffeeMixService.update(this.coffeeMix, this.coffeeMixId).subscribe(() => this.gotoCoffeeOverview());
   }
 
   gotoCoffeeOverview() {

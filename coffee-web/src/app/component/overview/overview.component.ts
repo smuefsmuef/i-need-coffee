@@ -39,7 +39,6 @@ export class OverviewComponent implements OnInit {
 
   // table
   displayedColumns: string[] = ['id', 'name', 'pricePerKg', 'roastDegree', 'ratings', 'link'];
-  dataSource = ELEMENT_DATA; // todo add later coffeemixes from GET
 
   // dialog
   name: string;
@@ -51,7 +50,6 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit() {
     this.coffeeMixService.findAll().subscribe((data: CoffeeMix[] | undefined) => {
-      console.log('juhuu data ist hier', data)
       this.coffeeMixes = data;
     });
   }

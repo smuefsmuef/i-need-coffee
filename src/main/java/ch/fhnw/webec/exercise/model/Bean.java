@@ -2,7 +2,13 @@ package ch.fhnw.webec.exercise.model;
 
 import ch.fhnw.webec.exercise.form.BeanOption;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.*;
+import java.time.LocalDateTime;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Bean implements BeanOption {
@@ -17,6 +23,14 @@ public class Bean implements BeanOption {
     private String origin;
 
     private int altitude;
+
+    @CreationTimestamp
+    @Column(updatable = false)
+    private LocalDateTime createdDateTime;
+
+    @UpdateTimestamp
+    private LocalDateTime updateDateTime;
+
 
     @Override
     @JsonIgnore
