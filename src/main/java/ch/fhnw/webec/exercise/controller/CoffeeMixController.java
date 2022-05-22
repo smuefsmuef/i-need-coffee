@@ -33,7 +33,7 @@ public class CoffeeMixController {
 
     // Get all Coffee Mixes
     @GetMapping()
-    public ResponseEntity<List<CoffeeMix>> getWorkspaceList() {
+    public ResponseEntity<List<CoffeeMix>> getCoffeeMixList() {
         return ResponseEntity.ok().body(this.coffeeMixRepository.findAll());
     }
 
@@ -48,11 +48,11 @@ public class CoffeeMixController {
 
     // Add a new Coffee Mix
     @PostMapping()
-    public ResponseEntity<CoffeeMix> addCoffeeMix(@Valid @RequestBody CoffeeMix workspace, BindingResult bindingResult) {
+    public ResponseEntity<CoffeeMix> addCoffeeMix(@Valid @RequestBody CoffeeMix coffeeMix, BindingResult bindingResult) {
         if(bindingResult.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.coffeeMixRepository.save(workspace));
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.coffeeMixRepository.save(coffeeMix));
     }
 
 
@@ -67,8 +67,6 @@ public class CoffeeMixController {
         }
         return ResponseEntity.ok(this.coffeeMixRepository.save(coffeeMix));
     }
-
-
 
     // Delete a Coffee Mix by Id
     @DeleteMapping("{id}")
@@ -113,5 +111,7 @@ public class CoffeeMixController {
             return ResponseEntity.status(HttpStatus.CREATED).body(this.ratingRepository.save(rating));
         }
     }
+
+
 
 }

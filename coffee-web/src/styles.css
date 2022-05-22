@@ -23,3 +23,7 @@ body {
 .mat-toolbar.mat-accent {
   background: #c6805e;
 }
+
+.mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
+  background: #f08d36;
+}

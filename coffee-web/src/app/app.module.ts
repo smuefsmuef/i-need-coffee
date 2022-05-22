@@ -37,6 +37,7 @@ import {PageNotFoundComponent} from './component/page-not-found/page-not-found.c
 import {RatingDialogComponent} from './component/overview/rating-dialog/rating-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSliderModule} from "@angular/material/slider";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import {MatSliderModule} from "@angular/material/slider";
     MatCardModule,
     FormsModule,
     MatDialogModule,
-    MatSliderModule
+    MatSliderModule,
+    MatAutocompleteModule
   ],
   exports: [
     MatButtonModule,

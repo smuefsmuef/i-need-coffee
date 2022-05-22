@@ -5,17 +5,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import javax.persistence.UniqueConstraint;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Bean implements BeanOption {
 
-    // todo implement select
-
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String type;
@@ -30,7 +32,6 @@ public class Bean implements BeanOption {
 
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
-
 
     @Override
     @JsonIgnore
@@ -78,4 +79,5 @@ public class Bean implements BeanOption {
         this.altitude = altitude;
     }
 
+    // todo make sure the name is unique
 }

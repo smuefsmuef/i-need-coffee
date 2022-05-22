@@ -9,7 +9,7 @@
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>id</mat-label>
-        <input [(ngModel)]="coffeeMix.id" matInput required>
+        <input [(ngModel)]="coffeeMix.id" disabled matInput>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -18,19 +18,38 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>pricePerKg</mat-label>
+        <mat-label>Price Per Kg</mat-label>
         <input [(ngModel)]="coffeeMix.pricePerKg" matInput required type="number">
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>roastDegree</mat-label>
+        <mat-label>Roast Degree (1-5)</mat-label>
         <input [(ngModel)]="coffeeMix.roastDegree" matInput required>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Beans</mat-label>
-        <input [(ngModel)]="coffeeMix.beans" matInput>
-        <!--     todo   select-->
+        <mat-chip-list #beanList aria-label="Beans selection">
+
+          <mat-chip (removed)="remove(bean)" *ngFor="let bean of coffeeMix.beans" color="accent" selected>{{bean.type}}
+            <button matChipRemove>
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip>
+          <input
+            #beanInput
+            (matChipInputTokenEnd)="add($event)"
+            [formControl]="beanCtrl"
+            [matAutocomplete]="auto"
+            [matChipInputFor]="beanList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            placeholder="New Bean...">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+          <mat-option *ngFor="let b of allBeans " [value]="b">
+            {{b.type}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
 
     </mat-card-content>
@@ -38,19 +57,17 @@
 
     <mat-card-actions>
       <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
-        UPDATE
-        <!--        todo disable, wenn nicht editierbar/editiert-->
+        UPDATE & BACK
       </button>
       <button aria-label="icon-button" color="primary" mat-button routerLink="">
-        BACK
+        CANCEL
       </button>
     </mat-card-actions>
-
 
     <mat-card-subtitle>Reviews</mat-card-subtitle>
     <!--    todo info liste mit reviews wie bei dialog, nicht editierbar
        todo aber auch zeige rating an , erstellen aber nur auf der haupzseite-->
-    <table [dataSource]="dataSource" class="mat-elevation-z8 rating-list" mat-table>
+    <table [dataSource]="ratings" class="mat-elevation-z8 rating-list" mat-table>
       <ng-container matColumnDef="rating">
         <th *matHeaderCellDef mat-header-cell> Rating</th>
         <td *matCellDef="let element" mat-cell> {{element.rating}} </td>
