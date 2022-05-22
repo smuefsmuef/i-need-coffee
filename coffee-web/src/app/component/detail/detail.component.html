@@ -4,7 +4,8 @@
 
     <mat-card-title>Coffee Mix Detail</mat-card-title>
 
-    <mat-card-subtitle>Stammdaten</mat-card-subtitle>
+    <mat-card-subtitle>
+      <h2 class="subtitle">Stammdaten</h2></mat-card-subtitle>
 
     <mat-card-content>
       <mat-form-field appearance="outline">
@@ -64,13 +65,14 @@
       </button>
     </mat-card-actions>
 
-    <mat-card-subtitle>Reviews</mat-card-subtitle>
-    <!--    todo info liste mit reviews wie bei dialog, nicht editierbar
-       todo aber auch zeige rating an , erstellen aber nur auf der haupzseite-->
+    <mat-divider></mat-divider>
+
+    <mat-card-subtitle>
+      <h2 class="subtitle">Reviews</h2></mat-card-subtitle>
     <table [dataSource]="ratings" class="mat-elevation-z8 rating-list" mat-table>
       <ng-container matColumnDef="rating">
         <th *matHeaderCellDef mat-header-cell> Rating</th>
-        <td *matCellDef="let element" mat-cell> {{element.rating}} </td>
+        <td *matCellDef="let element" mat-cell> {{element.ratingValue}} </td>
       </ng-container>
       <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell> Name</th>
@@ -85,12 +87,12 @@
         <td *matCellDef="let element" mat-cell> {{element.amount}} </td>
       </ng-container>
       <ng-container matColumnDef="grind">
-        <th *matHeaderCellDef mat-header-cell> Grind Level</th>
+        <th *matHeaderCellDef mat-header-cell> Grinding Grade</th>
         <td *matCellDef="let element" mat-cell> {{element.grind}} </td>
       </ng-container>
       <ng-container matColumnDef="createdDate">
         <th *matHeaderCellDef mat-header-cell> Date</th>
-        <td *matCellDef="let element" mat-cell> {{element.createdDate}} </td>
+        <td *matCellDef="let element" mat-cell> {{element.createdDateTime}} </td>
       </ng-container>
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
       <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>

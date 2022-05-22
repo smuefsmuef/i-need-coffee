@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CoffeeMix } from '../../model/coffee-mix';
-import { CoffeeMixService } from '../../service/coffee-mix-service';
+import {CoffeeMix} from '../../model/coffee-mix';
+import {ApiService} from '../../service/api-service';
 
 @Component({
   selector: 'app-add-coffee-mix',
@@ -15,7 +15,7 @@ export class AddCoffeeMixComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private coffeeMixService: CoffeeMixService) {
+    private coffeeMixService: ApiService) {
     this.coffeeMix = new CoffeeMix();
   }
 

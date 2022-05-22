@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {CoffeeMix} from '../../model/coffee-mix';
-import {CoffeeMixService} from '../../service/coffee-mix-service';
+import {ApiService} from '../../service/api-service';
 import {RatingDialogComponent} from "./rating-dialog/rating-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -44,7 +44,7 @@ export class OverviewComponent implements OnInit {
   name: string;
   ratings: string;
 
-  constructor(private coffeeMixService: CoffeeMixService, public dialog: MatDialog) {
+  constructor(private coffeeMixService: ApiService, public dialog: MatDialog) {
 
   }
 
@@ -57,12 +57,10 @@ export class OverviewComponent implements OnInit {
 
   openDialog(item): void {
     const dialogRef = this.dialog.open(RatingDialogComponent, {
-      width: '60%', height: 'auto', data: {ratings: item.ratings, name: item.name}, // share data with dialog
+      width: '60%', height: 'auto', data: {id: item.id, name: item.name}, // share data with dialog
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log('result', result);
       this.ratings = result
     });
   }

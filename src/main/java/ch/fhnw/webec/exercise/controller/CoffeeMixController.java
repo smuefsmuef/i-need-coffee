@@ -86,27 +86,16 @@ public class CoffeeMixController {
     }
 
 
-
     // Create new Rating
     @PostMapping("{coffeeMixId}/ratings")
-    public ResponseEntity<Rating> addCoffeeMixRating(@PathVariable int id, @Valid @RequestBody Rating rating, BindingResult bindingResult) {
-        var coffeeMix = this.coffeeMixRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-//        if (authentication == null || !authentication.isAuthenticated()) {
-//            throw new ResponseStatusException(HttpStatus.FORBIDDEN);
-//        }
-// todo add if we go with authentication
-
-//        can still be implemented if necessary
-//        if (this.badWordService.containsBadWords(rating.getReview())) {
-//            bindingResult.addError(new FieldError("rating", "comment", "Your comment contains bad words, please watch your language!"));
-//        }
-
+    public ResponseEntity<Rating> addCoffeeMixRating(@PathVariable("coffeeMixId") int coffeeMixId, @Valid @RequestBody Rating rating,
+        BindingResult bindingResult) {
+        var coffeeMix = this.coffeeMixRepository.findById(coffeeMixId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         if (bindingResult.hasErrors()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         } else {
-            System.out.println("binding result is ok / ln 127 RESTCoffeeMixController");
-//            rating.setUser((User) this.userService.loadUserByUsername(authentication.getName()));
-//            rating.setCoffeeMix(coffeeMix);
+            System.out.println("binding result is ok ");
+            rating.setCoffeeMix(coffeeMix);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(this.ratingRepository.save(rating));
         }

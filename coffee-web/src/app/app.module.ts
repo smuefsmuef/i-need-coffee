@@ -22,7 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {OverviewComponent} from './component/overview/overview.component';
 
 import {HttpClientModule} from '@angular/common/http';
-import {CoffeeMixService} from './service/coffee-mix-service';
+import {ApiService} from './service/api-service';
 
 import {AboutComponent} from './component/about/about.component';
 
@@ -99,7 +99,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatTableModule,
     MatPaginatorModule
   ],
-  providers: [CoffeeMixService],
+  providers: [ApiService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

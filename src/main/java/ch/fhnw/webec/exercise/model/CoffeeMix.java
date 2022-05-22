@@ -79,7 +79,7 @@ public class CoffeeMix {
 
     // todo add something like this, adjust this one
     public double getAverageRating() {
-        var averageRating = this.getRatings().stream().mapToDouble(Rating::getRating).average().orElse(0);
+        var averageRating = this.getRatings().stream().mapToDouble(Rating::getRatingValue).average().orElse(0);
         return this.roundToHalf(averageRating);
     }
     private double roundToHalf(double number) {

@@ -15,5 +15,5 @@ INSERT IGNORE INTO COFFEE_MIX_BEANS(coffee_mix_id, beans_id) VALUES (1, 2);
 INSERT IGNORE INTO COFFEE_MIX_BEANS(coffee_mix_id, beans_id) VALUES (2, 3);
 
 -- Add one first Rating/Review
-INSERT IGNORE INTO RATING ( AMOUNT, GRIND, NAME, RATING, REVIEW, COFFEE_MIX_ID)
+INSERT IGNORE INTO RATING ( AMOUNT, GRIND, NAME, RATING_VALUE, REVIEW, COFFEE_MIX_ID)
 VALUES(  14,  5, 'Petra K.', 2, 'Aromatic, Notes of Chocolate. One of the best Coffee Cups I ever drank!',  1);

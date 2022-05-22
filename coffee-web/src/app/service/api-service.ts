@@ -7,7 +7,7 @@ import {Rating} from "../model/rating";
 import {Bean} from "../component/detail/detail.component";
 
 @Injectable()
-export class CoffeeMixService {
+export class ApiService {
 
   private coffeeMixUrl: string;
   private beanUrl: string;
@@ -35,9 +35,13 @@ export class CoffeeMixService {
     return this.http.get<CoffeeMix>(`${this.coffeeMixUrl}/${id}`)
   }
 
-  public addRating(rating: Rating): Observable<Rating> {
-    console.log('find by id service works')
-    return this.http.put<Rating>(`${this.coffeeMixUrl}/2`, rating) // todo add id
+  public findRatingByCoffeeMixId(id: number): Observable<CoffeeMix> {
+    return this.http.get<CoffeeMix>(`${this.coffeeMixUrl}/${id}/ratings`)
+  }
+
+  public addRating(rating: Rating, idCoffeeMix: number): Observable<Rating> {
+    console.log('submit new rating')
+    return this.http.post<Rating>(`${this.coffeeMixUrl}/${idCoffeeMix}/ratings`, rating)
   }
 
   public add(bean: Bean) {

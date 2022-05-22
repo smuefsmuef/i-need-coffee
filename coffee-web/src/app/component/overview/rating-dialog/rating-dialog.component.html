@@ -6,11 +6,9 @@
     <input [(ngModel)]="rating.name" matInput required>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Rating (1-6)</mat-label>
-    <input [(ngModel)]="rating.rating" matInput required type="number">
-    <!--    <mat-slider min="1" max="5" step="0.5" value="1.5"></mat-slider>-->
-  </mat-form-field>
+  <p>Your Rating</p>
+  <mat-slider [(ngModel)]="rating.ratingValue" aria-label="ttet" max="6"
+              min="1" step="1" thumbLabel title="zskjdasd"></mat-slider>
 
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Leave a comment</mat-label>
@@ -22,17 +20,15 @@
     <input [(ngModel)]="rating.amount" matInput type="number">
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Grind Level (1-6)</mat-label>
-    <input [(ngModel)]="rating.grind" matInput type="number">
-  </mat-form-field>
-
+  <p>Grinding Grade</p>
+  <mat-slider [(ngModel)]="rating.grind"
+              max="11" min="1" step="1" thumbLabel></mat-slider>
 
 </div>
 <div mat-dialog-actions>
   <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
-    SAVE
+    SUBMIT
   </button>
-  <button (click)="onNoClick()" aria-label="icon-button" color="primary" mat-button>CLOSE 1</button>
+  <button (click)="onNoClick()" aria-label="icon-button" color="primary" mat-button>CLOSE</button>
 
 </div>

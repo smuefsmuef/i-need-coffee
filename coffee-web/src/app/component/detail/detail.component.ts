@@ -1,7 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CoffeeMix} from '../../model/coffee-mix';
 import {ActivatedRoute, Router} from '@angular/router';
-import {CoffeeMixService} from '../../service/coffee-mix-service';
+import {ApiService} from '../../service/api-service';
 import {Rating} from "../../model/rating";
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {MatChipInputEvent} from "@angular/material/chips";
@@ -17,12 +17,10 @@ export interface Bean {
 })
 export class DetailComponent implements OnInit {
   coffeeMix: CoffeeMix;
-
+  ratings: Rating;
   editMode: boolean = false;
-  ratings: Rating[];
   coffeeMixId: number
-  addOnBlur = true;
-
+  ratingDateFormatted: number
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   displayedColumns: string[] = ['rating', 'name', 'review', 'amount', 'grind', 'createdDate'];
   beanCtrl = new FormControl();
@@ -31,7 +29,7 @@ export class DetailComponent implements OnInit {
 
   @ViewChild('beanInput') beanInput: ElementRef<HTMLInputElement>;
 
-  constructor(private route: ActivatedRoute, private router: Router, private coffeeMixService: CoffeeMixService) {
+  constructor(private route: ActivatedRoute, private router: Router, private coffeeMixService: ApiService) {
     this.coffeeMix = new CoffeeMix();
   }
 
@@ -44,16 +42,15 @@ export class DetailComponent implements OnInit {
       this.coffeeMix = data;
     });
 
-    // // todo get the ratings
-    // this.coffeeMixService.findCoffeeRating(this.coffeeMixId).subscribe((data: CoffeeMix | undefined) => {
-    //   this.ratings = this.coffeeMix.ratings
-    //   console.log(this.coffeeMix, 'ssdf')
-    // });
+    this.coffeeMixService.findRatingByCoffeeMixId(this.coffeeMixId).subscribe((data: Rating | undefined) => {
+      this.ratings = data;
+    });
 
     this.coffeeMixService.findAllBeans().subscribe((data: Bean[] | undefined) => {
       this.allBeans = data;
       console.log(this.allBeans, 'all beans')
     });
+
   }
 
   onSubmit() {
@@ -63,7 +60,6 @@ export class DetailComponent implements OnInit {
   }
 
   gotoCoffeeOverview() {
-    //  this.router.navigate(['/coffeemix']);
     this.router.navigate(['']);
   }
 

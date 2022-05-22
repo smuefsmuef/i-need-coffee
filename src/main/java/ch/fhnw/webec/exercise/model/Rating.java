@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -19,24 +20,21 @@ public class Rating {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Min(1)
-    @Max(5)
-    @NotEmpty
-    private int rating;
+    @Max(6)
+    private int ratingValue;
 
-    @NotEmpty
     private String name;
 
     @Column(columnDefinition = "TEXT")
-    @NotEmpty
     private String review;
 
-    private Long amount;
+    private int amount;
 
     @Min(1)
-    @Max(10)
+    @Max(11)
     private int grind;
 
     @CreationTimestamp
@@ -54,41 +52,26 @@ public class Rating {
     public Rating() {
     }
 
-    public Rating(int rating, String name, String review) {
-        this.id = id;
-        this.rating = rating;
-        this.name = name;
-        this.review = review;
+    public Rating(int ratingValue) {
+        this.ratingValue = ratingValue;
     }
 
-    public Rating(Long id, int rating, String name, String review, Long amount, int grind,
-        LocalDateTime createdDateTime, LocalDateTime updateDateTime, CoffeeMix coffeeMix) {
-        this.id = id;
-        this.rating = rating;
-        this.name = name;
-        this.review = review;
-        this.amount = amount;
-        this.grind = grind;
-        this.createdDateTime = createdDateTime;
-        this.updateDateTime = updateDateTime;
-        this.coffeeMix = coffeeMix;
-    }
-// Getter und Setter
+    // Getter und Setter
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int getRating() {
-        return rating;
+    public int getRatingValue() {
+        return ratingValue;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setRatingValue(int ratingValue) {
+        this.ratingValue = ratingValue;
     }
 
     public String getName() {
@@ -107,11 +90,11 @@ public class Rating {
         this.review = review;
     }
 
-    public Long getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

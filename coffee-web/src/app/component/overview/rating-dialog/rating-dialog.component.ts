@@ -2,8 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {DialogData} from "../../../model/dialog-data";
 import {ActivatedRoute, Router} from "@angular/router";
-import {CoffeeMixService} from "../../../service/coffee-mix-service";
-import {CoffeeMix} from "../../../model/coffee-mix";
+import {ApiService} from "../../../service/api-service";
 import {Rating} from "../../../model/rating";
 
 @Component({
@@ -17,7 +16,7 @@ export class RatingDialogComponent {
   constructor(public dialogRef: MatDialogRef<RatingDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: DialogData,
               private route: ActivatedRoute,
               private router: Router,
-              private coffeeMixService: CoffeeMixService) {
+              private coffeeMixService: ApiService) {
     this.rating = new Rating();
   }
 
@@ -26,8 +25,7 @@ export class RatingDialogComponent {
   }
 
   onSubmit() {
-    console.log('submit', this.rating)
-    this.coffeeMixService.addRating(this.rating).subscribe(() => this.gotoCoffeeOverview());
+    this.coffeeMixService.addRating(this.rating, this.data.id).subscribe(() => this.gotoCoffeeOverview());
     this.dialogRef.close();
   }
 
