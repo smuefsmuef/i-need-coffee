@@ -1,38 +1,44 @@
 <div class="container-card">
-
   <mat-card class="example-card">
+    <mat-card-title>Coffee Blend Detail</mat-card-title>
 
-    <mat-card-title>Coffee Mix Detail</mat-card-title>
-
-    <mat-card-subtitle>
-      <h2 class="subtitle">Stammdaten</h2></mat-card-subtitle>
+    <mat-card-subtitle><h2 class="subtitle">Stammdaten</h2></mat-card-subtitle>
 
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>id</mat-label>
-        <input [(ngModel)]="coffeeMix.id" disabled matInput>
+        <input [(ngModel)]="coffeeMix.id" disabled matInput/>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="coffeeMix.name" matInput required>
+        <input [(ngModel)]="coffeeMix.name" matInput required/>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Price Per Kg</mat-label>
-        <input [(ngModel)]="coffeeMix.pricePerKg" matInput required type="number">
+        <input
+          [(ngModel)]="coffeeMix.pricePerKg"
+          matInput
+          required
+          type="number"
+        />
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Roast Degree (1-5)</mat-label>
-        <input [(ngModel)]="coffeeMix.roastDegree" matInput required>
+        <input [(ngModel)]="coffeeMix.roastDegree" matInput required/>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Beans</mat-label>
         <mat-chip-list #beanList aria-label="Beans selection">
-
-          <mat-chip (removed)="remove(bean)" *ngFor="let bean of coffeeMix.beans" color="accent" selected>{{bean.type}}
+          <mat-chip
+            (removed)="remove(bean)"
+            *ngFor="let bean of coffeeMix.beans"
+            color="accent"
+            selected
+          >{{ bean.type }}
             <button matChipRemove>
               <mat-icon>cancel</mat-icon>
             </button>
@@ -44,20 +50,33 @@
             [matAutocomplete]="auto"
             [matChipInputFor]="beanList"
             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            placeholder="New Bean...">
+            placeholder="New Bean..."
+          />
         </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let b of allBeans " [value]="b">
-            {{b.type}}
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="selected($event)"
+        >
+          <mat-option *ngFor="let b of allBeans" [value]="b">
+            {{ b.type }}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
-
     </mat-card-content>
 
-
     <mat-card-actions>
-      <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
+      <button
+        (click)="onSubmit()"
+        [disabled]="
+          !coffeeMix.name ||
+          !coffeeMix.beans ||
+          !coffeeMix.roastDegree ||
+          !coffeeMix.pricePerKg
+        "
+        aria-label="icon-button"
+        color="primary"
+        mat-raised-button
+      >
         UPDATE & BACK
       </button>
       <button aria-label="icon-button" color="primary" mat-button routerLink="">
@@ -65,39 +84,42 @@
       </button>
     </mat-card-actions>
 
-    <mat-divider></mat-divider>
+    <mat-divider inset></mat-divider>
 
-    <mat-card-subtitle>
-      <h2 class="subtitle">Reviews</h2></mat-card-subtitle>
-    <table [dataSource]="ratings" class="mat-elevation-z8 rating-list" mat-table>
+    <mat-card-subtitle><h2 class="subtitle">Reviews</h2></mat-card-subtitle>
+    <table
+      [dataSource]="ratings"
+      class="mat-elevation-z8 rating-list"
+      mat-table
+    >
       <ng-container matColumnDef="rating">
-        <th *matHeaderCellDef mat-header-cell> Rating</th>
-        <td *matCellDef="let element" mat-cell> {{element.ratingValue}} </td>
+        <th *matHeaderCellDef mat-header-cell>Rating</th>
+        <td *matCellDef="let element" mat-cell>{{ element.ratingValue }}</td>
       </ng-container>
       <ng-container matColumnDef="name">
-        <th *matHeaderCellDef mat-header-cell> Name</th>
-        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+        <th *matHeaderCellDef mat-header-cell>Name</th>
+        <td *matCellDef="let element" mat-cell>{{ element.name }}</td>
       </ng-container>
       <ng-container matColumnDef="review">
-        <th *matHeaderCellDef mat-header-cell> Comment</th>
-        <td *matCellDef="let element" mat-cell> {{element.review}} </td>
+        <th *matHeaderCellDef mat-header-cell>Comment</th>
+        <td *matCellDef="let element" mat-cell>{{ element.review }}</td>
       </ng-container>
       <ng-container matColumnDef="amount">
-        <th *matHeaderCellDef mat-header-cell> Amount</th>
-        <td *matCellDef="let element" mat-cell> {{element.amount}} </td>
+        <th *matHeaderCellDef mat-header-cell>Amount</th>
+        <td *matCellDef="let element" mat-cell>{{ element.amount }}</td>
       </ng-container>
       <ng-container matColumnDef="grind">
-        <th *matHeaderCellDef mat-header-cell> Grinding Grade</th>
-        <td *matCellDef="let element" mat-cell> {{element.grind}} </td>
+        <th *matHeaderCellDef mat-header-cell>Grinding Grade</th>
+        <td *matCellDef="let element" mat-cell>{{ element.grind }}</td>
       </ng-container>
       <ng-container matColumnDef="createdDate">
-        <th *matHeaderCellDef mat-header-cell> Date</th>
-        <td *matCellDef="let element" mat-cell> {{element.createdDateTime}} </td>
+        <th *matHeaderCellDef mat-header-cell>Date</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.createdDateTime }}
+        </td>
       </ng-container>
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
     </table>
   </mat-card>
 </div>
-
-

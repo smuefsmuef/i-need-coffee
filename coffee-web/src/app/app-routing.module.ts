@@ -11,12 +11,12 @@ const routes: Routes = [
   {path: 'coffeemix/:id', component: DetailComponent},
   {path: 'about', component: AboutComponent},
   {path: 'add', component: AddCoffeeMixComponent},
-  {path: '**', component: PageNotFoundComponent, pathMatch: 'full'}  // Wildcard route for a 404 page
+  {path: '**', component: PageNotFoundComponent, pathMatch: 'full'}, // Wildcard route for a 404 page
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {
 }

@@ -1,34 +1,69 @@
-<h1 mat-dialog-title>Ratings for "{{data.name}}"</h1>
-<div mat-dialog-content>
+<h2 mat-dialog-title>Rating for a Cup of "{{ data.name }}"</h2>
+<p>Let us know how you prepared the Coffee and how you liked it.</p>
 
+<div mat-dialog-content>
   <mat-form-field appearance="outline">
     <mat-label>Your Name</mat-label>
-    <input [(ngModel)]="rating.name" matInput required>
+    <input [(ngModel)]="rating.name" dense matInput/>
   </mat-form-field>
 
   <p>Your Rating</p>
-  <mat-slider [(ngModel)]="rating.ratingValue" aria-label="ttet" max="6"
-              min="1" step="1" thumbLabel title="zskjdasd"></mat-slider>
+  <mat-slider
+    [(ngModel)]="rating.ratingValue"
+    aria-label="rating"
+    max="6"
+    min="1"
+    step="1"
+    thumbLabel
+    title="zskjdasd"
+  ></mat-slider>
 
   <mat-form-field appearance="outline" class="full-width">
     <mat-label>Leave a comment</mat-label>
-    <textarea [(ngModel)]="rating.review" matInput placeholder="Ex. It makes me feel..."></textarea>
+    <textarea
+      [(ngModel)]="rating.review"
+      matInput
+      placeholder="Ex. It makes me feel..."
+    ></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+  <mat-form-field appearance="outline" dense>
     <mat-label>Amount in gramm</mat-label>
-    <input [(ngModel)]="rating.amount" matInput type="number">
+    <input [(ngModel)]="rating.amount" dense matInput type="number"/>
   </mat-form-field>
 
   <p>Grinding Grade</p>
-  <mat-slider [(ngModel)]="rating.grind"
-              max="11" min="1" step="1" thumbLabel></mat-slider>
-
+  <mat-slider
+    [(ngModel)]="rating.grind"
+    max="11"
+    min="1"
+    step="1"
+    thumbLabel
+  ></mat-slider>
 </div>
+
 <div mat-dialog-actions>
-  <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
+  <button
+    (click)="onSubmit()"
+    [disabled]="
+      !rating.name ||
+      !rating.grind ||
+      !rating.ratingValue ||
+      !rating.amount ||
+      !rating.review
+    "
+    aria-label="icon-button"
+    color="primary"
+    mat-raised-button
+  >
     SUBMIT
   </button>
-  <button (click)="onNoClick()" aria-label="icon-button" color="primary" mat-button>CLOSE</button>
-
+  <button
+    (click)="onNoClick()"
+    aria-label="icon-button"
+    color="primary"
+    mat-button
+  >
+    CLOSE
+  </button>
 </div>

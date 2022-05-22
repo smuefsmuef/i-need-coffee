@@ -6,5 +6,4 @@ export class Rating {
   createdDate: any;
   coffeeMixId: number;
   ratingValue: any;
-
 }

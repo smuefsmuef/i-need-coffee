@@ -1,36 +1,44 @@
 <div class="container-card">
-<mat-card class="example-card" >
-  <mat-card-header>
-    <mat-card-title>About</mat-card-title>
-    <mat-card-subtitle>Best Coffee Rating Application</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image alt="Coffee Bean Logo" src="assets/img/coffee_background.jpg"/>
-  <mat-card-content>
-    <p>
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings
-    </p>
-    <ul>
-      <li>uno</li>
-      <li>due</li>
-      <li>tre</li>
-    </ul>
-    <p>
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings.
-      This is a sample application for the module Web Engineering at the FHNW. It shows a list of books, allows to add and edit books and write book ratings
-    </p>
-  </mat-card-content>
-  <mat-divider inset></mat-divider>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>About</mat-card-title>
+      <mat-card-subtitle>Rate your Cup of Coffee!</mat-card-subtitle>
+    </mat-card-header>
+    <img alt="Coffee Bean Logo" mat-card-image src="assets/img/coffee_3.jpg"/>
+    <mat-card-content>
+      <h3>
+        This is a sample application for the module Web Engineering at the FHNW.
+        It shows a list of coffee blends (coffee mixes), allows to add and edit
+        new blends and to review a single cup of coffee.
+      </h3>
+      <h3>The application is based on 3 Entities:</h3>
+      <ul>
+        <li>CoffeeMix</li>
+        <li>Bean</li>
+        <li>Rating</li>
+      </ul>
+      <h3>with following Relations:</h3>
+      <ul>
+        <li>CoffeeMix - Bean (m:m)</li>
+        <li>CoffeeMix - Raiting (m:1)</li>
+      </ul>
+      <h2>Individual</h2>
+      <ul>
+        <li>Rich-Client with JavaScript (React)</li>
+        <li>Auth tbd</li>
+      </ul>
+      <h2>Team</h2>
+      <p>Petra Kohler</p>
+      <p>Jonas Gysin</p>
+    </mat-card-content>
+    <mat-divider inset></mat-divider>
 
-  <mat-card-actions>
-    <button mat-button color="primary">CONTACT</button>
-    <button mat-button color="primary"  href="http://www.fhnw.gitlab.com">GITLAB</button>
-  </mat-card-actions>
-</mat-card>
+    <mat-card-actions>
+      <button color="primary" mat-button>
+        <a href="https://gitlab.fhnw.ch/webec-fs22/kohler-gysin" target="_blank"
+        >GITLAB</a
+        >
+      </button>
+    </mat-card-actions>
+  </mat-card>
 </div>

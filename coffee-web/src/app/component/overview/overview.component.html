@@ -1,48 +1,60 @@
 <div class="container-card">
-
   <mat-card class="example-card">
+    <mat-card-title>Overview - My Coffee Blends</mat-card-title>
 
-    <mat-card-title>Overview - My Coffee Mixes</mat-card-title>
-
-    <mat-card-subtitle>last updatelasdlalsd sdasd .</mat-card-subtitle>
+    <mat-card-subtitle
+    >A list of all Coffee Blends (Coffee Mixes) that are stored in our
+      database and that can be rated.
+    </mat-card-subtitle
+    >
 
     <mat-card-actions>
-      <button aria-label="icon-button" color="primary" mat-raised-button routerLink="/add">
-        Add Coffee Mix
+      <button
+        aria-label="icon-button"
+        color="primary"
+        mat-raised-button
+        routerLink="/add"
+      >
+        Add Coffee Blend
       </button>
     </mat-card-actions>
 
     <table [dataSource]="coffeeMixes" class="mat-elevation-z8" mat-table>
       <!-- ID Column -->
       <ng-container matColumnDef="id">
-        <th *matHeaderCellDef mat-header-cell> Id</th>
-        <td *matCellDef="let element" mat-cell> {{element.id}} </td>
+        <th *matHeaderCellDef mat-header-cell>Id</th>
+        <td *matCellDef="let element" mat-cell>{{ element.id }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
-        <th *matHeaderCellDef mat-header-cell> Name</th>
-        <td *matCellDef="let element" mat-cell> {{element.name}} </td>
+        <th *matHeaderCellDef mat-header-cell>Blend Name</th>
+        <td *matCellDef="let element" mat-cell>{{ element.name }}</td>
       </ng-container>
 
       <!-- pricePerKg Column -->
       <ng-container matColumnDef="pricePerKg">
-        <th *matHeaderCellDef mat-header-cell> Price/Kg</th>
-        <td *matCellDef="let element" mat-cell> {{element.pricePerKg}} </td>
+        <th *matHeaderCellDef mat-header-cell>Price/Kg</th>
+        <td *matCellDef="let element" mat-cell>{{ element.pricePerKg }}</td>
       </ng-container>
 
       <!-- roastDegree Column -->
       <ng-container matColumnDef="roastDegree">
-        <th *matHeaderCellDef mat-header-cell> Roast Degree</th>
-        <td *matCellDef="let element" mat-cell> {{element.roastDegree}} </td>
+        <th *matHeaderCellDef mat-header-cell>Roast Degree</th>
+        <td *matCellDef="let element" mat-cell>{{ element.roastDegree }}</td>
       </ng-container>
 
       <!-- ratings Column -->
       <ng-container matColumnDef="ratings">
-        <th *matHeaderCellDef mat-header-cell> Rating</th>
+        <th *matHeaderCellDef mat-header-cell>Average Rating</th>
         <td *matCellDef="let element" mat-cell>
-          {{element.averageRating}}/6
-          <button (click)="openDialog(element)" aria-label="icon-button" class="coffee-mix-icon" mat-icon-button>
+          {{ element.averageRating }}/6
+          <button
+            (click)="openDialog(element)"
+            aria-label="icon-button"
+            class="coffee-mix-icon"
+            mat-icon-button
+          >
             <mat-icon class="brown">add_circle_outline</mat-icon>
           </button>
         </td>
@@ -50,19 +62,20 @@
 
       <!-- link to Detail -->
       <ng-container matColumnDef="link">
-        <th *matHeaderCellDef mat-header-cell></th>
+        <th *matHeaderCellDef mat-header-cell>Detail</th>
         <td *matCellDef="let element" align="right" mat-cell>
-          <button aria-label="icon-button" class="coffee-mix-icon" mat-icon-button
-                  routerLink="/coffeemix/{{element.id}}">
+          <button
+            aria-label="icon-button"
+            class="coffee-mix-icon"
+            mat-icon-button
+            routerLink="/coffeemix/{{ element.id }}"
+          >
             <mat-icon class="brown">read_more</mat-icon>
           </button>
         </td>
-
       </ng-container>
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
-      <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+      <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
     </table>
-
   </mat-card>
 </div>
-

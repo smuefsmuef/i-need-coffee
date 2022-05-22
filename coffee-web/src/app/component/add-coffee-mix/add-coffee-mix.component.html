@@ -1,36 +1,42 @@
 <div class="container-card">
-
   <mat-card class="example-card">
-
     <mat-card-title>Add new Coffee Mix</mat-card-title>
 
     <mat-card-content>
-
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="coffeeMix.name" matInput required>
+        <input [(ngModel)]="coffeeMix.name" matInput required/>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>pricePerKg</mat-label>
-        <input [(ngModel)]="coffeeMix.pricePerKg" matInput required type="number">
+        <input
+          [(ngModel)]="coffeeMix.pricePerKg"
+          matInput
+          required
+          type="number"
+        />
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>roastDegree</mat-label>
-        <input [(ngModel)]="coffeeMix.roastDegree" matInput required>
+        <input [(ngModel)]="coffeeMix.roastDegree" matInput required/>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Beans</mat-label>
-        <input [(ngModel)]="coffeeMix.beans" matInput>
+        <input [(ngModel)]="coffeeMix.beans" matInput/>
         <!--     todo   select-->
       </mat-form-field>
-
     </mat-card-content>
 
     <mat-card-actions>
-      <button (click)="onSubmit()" aria-label="icon-button" color="primary" mat-raised-button>
+      <button
+        (click)="onSubmit()"
+        aria-label="icon-button"
+        color="primary"
+        mat-raised-button
+      >
         CREATE
         <!--        todo disable, wenn nicht editierbar/editiert-->
       </button>

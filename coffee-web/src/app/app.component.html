@@ -1,13 +1,21 @@
 <div class="container">
-
   <mat-toolbar class="app-navbar" color="accent">
-    <button aria-label="icon-button" class="coffee-mix-icon" mat-icon-button routerLink="">
-      <img width="35" alt="Coffee Bean Logo" src="assets/img/coffee-bean.png"/>
+    <button
+      aria-label="icon-button"
+      class="coffee-mix-icon"
+      mat-icon-button
+      routerLink=""
+    >
+      <img alt="Coffee Bean Logo" src="assets/img/coffee-bean.png" width="35"/>
       <span>{{ title }}</span>
     </button>
     <span class="spacer"></span>
 
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu of our Coffee Rating Application">
+    <button
+      [matMenuTriggerFor]="menu"
+      aria-label="Menu of our Coffee Rating Application"
+      mat-icon-button
+    >
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
@@ -17,22 +25,14 @@
       </button>
       <button mat-menu-item routerLink="/add">
         <mat-icon>add_circle_outline</mat-icon>
-        <span>Add Coffee Mix</span>
+        <span>Add Coffee Blend</span>
       </button>
       <button mat-menu-item routerLink="/about">
         <mat-icon>subject</mat-icon>
         <span>About</span>
       </button>
-      <button mat-menu-item routerLink="/login">
-        <mat-icon>exit_to_appff</mat-icon>
-        <span>Logout</span>
-      </button>
     </mat-menu>
   </mat-toolbar>
 
-
-  <router-outlet>
-  </router-outlet>
-
-
+  <router-outlet></router-outlet>
 </div>
