@@ -1,10 +1,10 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 // @ts-ignore
-import {Observable} from 'rxjs/Observable';
-import {CoffeeMix} from '../model/coffee-mix';
-import {Rating} from '../model/rating';
-import {Bean} from '../component/detail/detail.component';
+import { Observable } from 'rxjs/Observable';
+import { CoffeeMix } from '../model/coffee-mix';
+import { Rating } from '../model/rating';
+import { Bean } from '../component/detail/detail.component';
 
 @Injectable()
 export class ApiService {

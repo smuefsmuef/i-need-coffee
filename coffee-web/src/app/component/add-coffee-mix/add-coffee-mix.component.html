@@ -5,17 +5,12 @@
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="coffeeMix.name" matInput required/>
+        <input [(ngModel)]="coffeeMix.name" matInput />
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Price Per Kg</mat-label>
-        <input
-          [(ngModel)]="coffeeMix.pricePerKg"
-          matInput
-          required
-          type="number"
-        />
+        <input [(ngModel)]="coffeeMix.pricePerKg" matInput type="number" />
       </mat-form-field>
 
       <p>Roast Degree</p>
@@ -28,17 +23,14 @@
         thumbLabel
         title="roastDegree"
       ></mat-slider>
-
-      <!--      <mat-form-field appearance="outline">-->
-      <!--        <mat-label>Beans</mat-label>-->
-      <!--        <input [(ngModel)]="coffeeMix.beans" matInput/>-->
-      <!--        &lt;!&ndash;     todo   select&ndash;&gt;-->
-      <!--      </mat-form-field>-->
     </mat-card-content>
 
     <mat-card-actions>
       <button
         (click)="onSubmit()"
+        [disabled]="
+          !coffeeMix.name || !coffeeMix.pricePerKg || !coffeeMix.roastDegree
+        "
         aria-label="icon-button"
         color="primary"
         mat-raised-button

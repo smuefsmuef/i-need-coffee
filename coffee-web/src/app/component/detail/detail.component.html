@@ -7,12 +7,12 @@
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>id</mat-label>
-        <input [(ngModel)]="coffeeMix.id" disabled matInput/>
+        <input [(ngModel)]="coffeeMix.id" disabled matInput />
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="coffeeMix.name" matInput required/>
+        <input [(ngModel)]="coffeeMix.name" matInput required />
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -27,7 +27,7 @@
 
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Roast Degree (1-5)</mat-label>
-        <input [(ngModel)]="coffeeMix.roastDegree" matInput required/>
+        <input [(ngModel)]="coffeeMix.roastDegree" matInput required />
       </mat-form-field>
 
       <mat-form-field appearance="outline">
@@ -38,7 +38,7 @@
             *ngFor="let bean of coffeeMix.beans"
             color="accent"
             selected
-          >{{ bean.type }}
+            >{{ bean.type }}
             <button matChipRemove>
               <mat-icon>cancel</mat-icon>
             </button>

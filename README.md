@@ -8,17 +8,18 @@ Petra Kohler & Jonas Gysin
 
 ### Description
 
-TODO: Write around a 5 sentence description of your idea and the entities you intend to create
-
+This is a sample application for the module Web Engineering at the FHNW.
+It shows a list of coffee blends (coffee mixes), allows to add and edit
+new blends and to review a single cup of coffee.
 
 Entities:
-* Workspace
-* Note
-* Label
+* CoffeeMix
+* Bean
+* Rating
 
-Relationships:
-Workspace - Note: OneToMany (1:n)
-Note - Label: OneToMany (1:n)
+Relations:
+* CoffeeMix - Bean (m:m)
+* CoffeeMix - Raiting (m:1)
 
 ### Individual
 
@@ -27,9 +28,7 @@ Rich-Client with Angular
 
 ## Installation and run instructions
 
-TODO: Add your instructions here if they do not follow the default
-
-### Run application
+### Run application backend
 
 ```
 ./gradlew bootRun
@@ -40,3 +39,10 @@ TODO: Add your instructions here if they do not follow the default
 ```
 ./gradlew test
 ```
+
+### Run Frontend
+```
+ng serve
+```
+Run ng serve for a dev server.
+Navigate to http://localhost:4200/

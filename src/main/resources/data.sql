@@ -6,8 +6,8 @@ INSERT IGNORE INTO BEAN (id, type, origin, altitude) VALUES (2, 'Robusta K1', 'V
 INSERT IGNORE INTO BEAN (id, type, origin, altitude) VALUES (3, 'Arabica I', 'Indonesia', 500);
 
 -- Add first Coffee Mixes
-INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg) VALUES (1, 'Mexico High Mountain', 3, 20);
-INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg) VALUES (2, 'Java Blend ',2, 32);
+INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg, average_rating) VALUES (1, 'Mexico High Mountain', 3, 20, 1);
+INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg, average_rating) VALUES (2, 'Java Blend ',2, 32, 2);
 
 -- Add Beans to Coffee Mixes
 INSERT IGNORE INTO COFFEE_MIX_BEANS(coffee_mix_id, beans_id) VALUES (1, 1);

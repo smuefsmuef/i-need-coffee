@@ -9,7 +9,6 @@ spring:
         # store data in a persistent file, mode MySQL and enable server
         url: jdbc:h2:file:./data/application;MODE=MySQL;AUTO_SERVER=true
 
-
     sql:
         init:
             mode: always

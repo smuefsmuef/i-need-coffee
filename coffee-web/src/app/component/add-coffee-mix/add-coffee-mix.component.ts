@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {CoffeeMix} from '../../model/coffee-mix';
-import {ApiService} from '../../service/api-service';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CoffeeMix } from '../../model/coffee-mix';
+import { ApiService } from '../../service/api-service';
 
 @Component({
   selector: 'app-add-coffee-mix',

@@ -96,7 +96,6 @@ public class CoffeeMixController {
         } else {
             System.out.println("binding result is ok ");
             rating.setCoffeeMix(coffeeMix);
-
             return ResponseEntity.status(HttpStatus.CREATED).body(this.ratingRepository.save(rating));
         }
     }

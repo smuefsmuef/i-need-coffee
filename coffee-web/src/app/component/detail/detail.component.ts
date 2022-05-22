@@ -1,12 +1,12 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {CoffeeMix} from '../../model/coffee-mix';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ApiService} from '../../service/api-service';
-import {Rating} from '../../model/rating';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {MatChipInputEvent} from '@angular/material/chips';
-import {FormControl} from '@angular/forms';
-import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CoffeeMix } from '../../model/coffee-mix';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../../service/api-service';
+import { Rating } from '../../model/rating';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { FormControl } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 
 export interface Bean {
   type: string;
@@ -86,9 +86,9 @@ export class DetailComponent implements OnInit {
     const value = (event.value || '').trim();
     if (value) {
       // Add a new bean
-      this.coffeeMixService.add({type: value}).subscribe((response) =>
+      this.coffeeMixService.add({ type: value }).subscribe((response) =>
         // Push to list - update beans
-        this.coffeeMix.beans.push({id: response.body.id, type: value})
+        this.coffeeMix.beans.push({ id: response.body.id, type: value })
       );
     }
     event.chipInput!.clear();
@@ -104,7 +104,7 @@ export class DetailComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     const bean = event.option.value;
-    this.coffeeMix.beans.push({id: bean.id, type: bean.type});
+    this.coffeeMix.beans.push({ id: bean.id, type: bean.type });
     this.beanInput.nativeElement.value = '';
     this.beanCtrl.setValue(null);
   }

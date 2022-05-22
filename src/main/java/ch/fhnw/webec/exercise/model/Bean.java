@@ -78,5 +78,4 @@ public class Bean implements BeanOption {
         this.altitude = altitude;
     }
 
-    // todo make sure the name is unique
 }

@@ -1,9 +1,9 @@
-import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {DialogData} from '../../../model/dialog-data';
-import {ActivatedRoute, Router} from '@angular/router';
-import {ApiService} from '../../../service/api-service';
-import {Rating} from '../../../model/rating';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { DialogData } from '../../../model/dialog-data';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../../../service/api-service';
+import { Rating } from '../../../model/rating';
 
 @Component({
   selector: 'app-rating-dialog',
@@ -35,6 +35,6 @@ export class RatingDialogComponent {
   }
 
   gotoCoffeeOverview() {
-    this.router.navigate(['']);
+    this.router.navigate(['']).then(() => window.location.reload());
   }
 }

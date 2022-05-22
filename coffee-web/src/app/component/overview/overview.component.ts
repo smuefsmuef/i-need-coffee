@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {CoffeeMix} from '../../model/coffee-mix';
-import {ApiService} from '../../service/api-service';
-import {RatingDialogComponent} from './rating-dialog/rating-dialog.component';
-import {MatDialog} from '@angular/material/dialog';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { CoffeeMix } from '../../model/coffee-mix';
+import { ApiService } from '../../service/api-service';
+import { RatingDialogComponent } from './rating-dialog/rating-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 const ELEMENT_DATA: CoffeeMix[] =
   // testdata
@@ -68,8 +69,11 @@ export class OverviewComponent implements OnInit {
   name: string;
   ratings: string;
 
-  constructor(private coffeeMixService: ApiService, public dialog: MatDialog) {
-  }
+  constructor(
+    private coffeeMixService: ApiService,
+    public dialog: MatDialog,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.coffeeMixService
@@ -83,7 +87,7 @@ export class OverviewComponent implements OnInit {
     const dialogRef = this.dialog.open(RatingDialogComponent, {
       width: '60%',
       height: 'auto',
-      data: {id: item.id, name: item.name}, // share data with dialog
+      data: { id: item.id, name: item.name }, // share data with dialog
     });
 
     dialogRef.afterClosed().subscribe((result) => {

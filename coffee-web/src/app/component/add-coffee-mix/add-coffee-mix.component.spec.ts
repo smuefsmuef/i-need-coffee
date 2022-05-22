@@ -1,5 +1,5 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {AddCoffeeMixComponent} from './add-coffee-mix.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AddCoffeeMixComponent } from './add-coffee-mix.component';
 
 describe('CoffeeMixFormComponent', () => {
   let component: AddCoffeeMixComponent;

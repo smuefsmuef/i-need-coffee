@@ -55,18 +55,7 @@ public class CoffeeMix {
     private LocalDateTime updateDateTime;
 
     public CoffeeMix(){
-
     }
-
-
-//    public CoffeeMix(int id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
-//        this.id = id;
-//        this.name = name;
-//        this.pricePerKg = pricePerKg;
-//        this.roastDegree = roastDegree;
-//        this.beans.add(bean);
-//        this.ratings.add(rating);
-//    }
 
     public CoffeeMix(String name) {
         this.name = name;
@@ -81,18 +70,21 @@ public class CoffeeMix {
         }
     }
 
-    // todo add something like this, adjust this one
+    private double roundToHalf(double number) {
+        return Math.round(number * 2) / 2.0;
+    }
+
+    // Getter & Setter
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
+
     public double getAverageRating() {
         var averageRating = this.getRatings().stream().mapToDouble(Rating::getRatingValue).average().orElse(0);
         return this.roundToHalf(averageRating);
     }
 
-    private double roundToHalf(double number) {
-        return Math.round(number * 2) / 2.0;
-    }
-
-
-    // Getter & Setter
     public int getId() {
         return id;
     }
@@ -133,7 +125,4 @@ public class CoffeeMix {
         return ratings;
     }
 
-    public void setAverageRating(double averageRating) {
-        this.averageRating = averageRating;
-    }
 }
