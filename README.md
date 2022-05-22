@@ -18,13 +18,13 @@ Entities:
 * Rating
 
 Relations:
-* CoffeeMix - Bean (m:m)
-* CoffeeMix - Raiting (m:1)
+* CoffeeMix - Bean (n:n)
+* CoffeeMix - Raiting (n:1)
 
 ### Individual
 
-Authentication & Authorization
 Rich-Client with Angular
+Frontend with Materials UI, Prettier and e2e Tests
 
 ## Installation and run instructions
 
