@@ -36,6 +36,8 @@ public class CoffeeMix {
     @Max(5)
     private int roastDegree;
 
+    private double averageRating;
+
     @ManyToMany
     @OrderBy("origin ASC")
     private Set<Bean> beans = new HashSet<>();
@@ -52,7 +54,10 @@ public class CoffeeMix {
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
 
-    public CoffeeMix(){ }
+    public CoffeeMix(){
+
+    }
+
 
 //    public CoffeeMix(int id, String name, Long pricePerKg, int roastDegree, Bean bean, Rating rating) {
 //        this.id = id;
@@ -64,7 +69,6 @@ public class CoffeeMix {
 //    }
 
     public CoffeeMix(String name) {
-        this();
         this.name = name;
     }
 
@@ -82,6 +86,7 @@ public class CoffeeMix {
         var averageRating = this.getRatings().stream().mapToDouble(Rating::getRatingValue).average().orElse(0);
         return this.roundToHalf(averageRating);
     }
+
     private double roundToHalf(double number) {
         return Math.round(number * 2) / 2.0;
     }
@@ -128,4 +133,7 @@ public class CoffeeMix {
         return ratings;
     }
 
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
 }

@@ -1,6 +1,6 @@
 <div class="container-card">
   <mat-card class="example-card">
-    <mat-card-title>Add new Coffee Mix</mat-card-title>
+    <mat-card-title>Add a new Coffee Mix</mat-card-title>
 
     <mat-card-content>
       <mat-form-field appearance="outline">
@@ -9,7 +9,7 @@
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>pricePerKg</mat-label>
+        <mat-label>Price Per Kg</mat-label>
         <input
           [(ngModel)]="coffeeMix.pricePerKg"
           matInput
@@ -18,16 +18,22 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>roastDegree</mat-label>
-        <input [(ngModel)]="coffeeMix.roastDegree" matInput required/>
-      </mat-form-field>
+      <p>Roast Degree</p>
+      <mat-slider
+        [(ngModel)]="coffeeMix.roastDegree"
+        aria-label="roastDegree"
+        max="5"
+        min="1"
+        step="1"
+        thumbLabel
+        title="roastDegree"
+      ></mat-slider>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Beans</mat-label>
-        <input [(ngModel)]="coffeeMix.beans" matInput/>
-        <!--     todo   select-->
-      </mat-form-field>
+      <!--      <mat-form-field appearance="outline">-->
+      <!--        <mat-label>Beans</mat-label>-->
+      <!--        <input [(ngModel)]="coffeeMix.beans" matInput/>-->
+      <!--        &lt;!&ndash;     todo   select&ndash;&gt;-->
+      <!--      </mat-form-field>-->
     </mat-card-content>
 
     <mat-card-actions>
@@ -37,8 +43,7 @@
         color="primary"
         mat-raised-button
       >
-        CREATE
-        <!--        todo disable, wenn nicht editierbar/editiert-->
+        NEXT
       </button>
       <button aria-label="icon-button" color="primary" mat-button routerLink="">
         BACK

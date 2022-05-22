@@ -9,7 +9,7 @@ import {ApiService} from '../../service/api-service';
   styleUrls: ['./add-coffee-mix.component.css'],
 })
 export class AddCoffeeMixComponent {
-  coffeeMix: CoffeeMix;
+  coffeeMix: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,14 +20,12 @@ export class AddCoffeeMixComponent {
   }
 
   onSubmit() {
-    console.log('submit add', this.coffeeMix);
     this.coffeeMixService
       .save(this.coffeeMix)
-      .subscribe(() => this.gotoCoffeeOverview());
+      .subscribe((response) => this.gotoCoffeeDetail(response.body.id));
   }
 
-  gotoCoffeeOverview() {
-    //  this.router.navigate(['/coffeemix']);
-    this.router.navigate(['']).then((r) => console.log(r));
+  gotoCoffeeDetail(id) {
+    this.router.navigate([`/coffeemix/${id}`]).then((r) => console.log(r));
   }
 }

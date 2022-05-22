@@ -35,7 +35,6 @@ export class RatingDialogComponent {
   }
 
   gotoCoffeeOverview() {
-    //  this.router.navigate(['/coffeemix']);
     this.router.navigate(['']);
   }
 }

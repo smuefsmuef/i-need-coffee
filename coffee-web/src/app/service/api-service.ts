@@ -20,8 +20,10 @@ export class ApiService {
     return this.http.get<CoffeeMix[]>(this.coffeeMixUrl);
   }
 
-  public save(coffeeMix: CoffeeMix) {
-    return this.http.post<CoffeeMix>(this.coffeeMixUrl, coffeeMix);
+  public save(coffeeMix: any) {
+    return this.http.post<CoffeeMix>(this.coffeeMixUrl, coffeeMix, {
+      observe: 'response',
+    });
   }
 
   public update(coffeeMix: CoffeeMix, id: number) {
