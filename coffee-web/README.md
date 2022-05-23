@@ -55,3 +55,9 @@ the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 ## Prettier
 
 npx prettier --write .
+
+## e2e Tests with Cypress
+
+/coffee-web $ npx cypress open
+
+or $ ng e2e
