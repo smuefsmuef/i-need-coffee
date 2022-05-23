@@ -104,8 +104,11 @@ export class DetailComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     const bean = event.option.value;
-    this.coffeeMix.beans.push({ id: bean.id, type: bean.type });
+    this.coffeeMix.beans.push({id: bean.id, type: bean.type});
     this.beanInput.nativeElement.value = '';
     this.beanCtrl.setValue(null);
   }
+
+
+  // todo add functionality delete rating
 }
