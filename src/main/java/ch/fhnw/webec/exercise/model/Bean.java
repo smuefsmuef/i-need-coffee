@@ -77,5 +77,4 @@ public class Bean implements BeanOption {
     public void setAltitude(int altitude) {
         this.altitude = altitude;
     }
-
 }
