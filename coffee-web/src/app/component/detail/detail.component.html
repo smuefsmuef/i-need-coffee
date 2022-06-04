@@ -1,23 +1,36 @@
 <div class="container-card">
   <mat-card class="example-card">
-    <mat-card-title>Coffee Blend Detail</mat-card-title>
+    <mat-card-title-group>
+      <mat-card-title>Coffee Blend: {{ coffeeMix.name }}</mat-card-title>
+      <span class="spacer"></span>
 
-    <mat-card-subtitle><h2 class="subtitle">Stammdaten</h2></mat-card-subtitle>
+      <button
+        (click)="deleteCoffeeMixById(coffeeMix.id)"
+        aria-label="icon-button"
+        color="primary"
+        mat-icon-button
+      >
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </mat-card-title-group>
+
+    <mat-card-subtitle><h2 class="subtitle">Main Data</h2></mat-card-subtitle>
 
     <mat-card-content>
       <mat-form-field appearance="outline">
         <mat-label>id</mat-label>
-        <input [(ngModel)]="coffeeMix.id" disabled matInput />
+        <input [(ngModel)]="coffeeMix.id" disabled matInput/>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" id="name">
         <mat-label>Name</mat-label>
-        <input [(ngModel)]="coffeeMix.name" matInput required />
+        <input [(ngModel)]="coffeeMix.name" id="namefield" matInput required/>
       </mat-form-field>
 
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline" id="price">
         <mat-label>Price Per Kg</mat-label>
         <input
+          id="pricefield"
           [(ngModel)]="coffeeMix.pricePerKg"
           matInput
           required
@@ -25,10 +38,17 @@
         />
       </mat-form-field>
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Roast Degree (1-5)</mat-label>
-        <input [(ngModel)]="coffeeMix.roastDegree" matInput required />
-      </mat-form-field>
+      <p>Roast Degree</p>
+      <mat-slider
+        id="roastDegree"
+        [(ngModel)]="coffeeMix.roastDegree"
+        aria-label="roastDegree"
+        max="5"
+        min="1"
+        step="1"
+        thumbLabel
+        title="roastDegree"
+      ></mat-slider>
 
       <mat-form-field appearance="outline">
         <mat-label>Beans</mat-label>
@@ -80,13 +100,15 @@
         UPDATE & BACK
       </button>
       <button aria-label="icon-button" color="primary" mat-button routerLink="">
-        CANCEL
+        BACK
       </button>
     </mat-card-actions>
 
     <mat-divider inset></mat-divider>
 
     <mat-card-subtitle><h2 class="subtitle">Reviews</h2></mat-card-subtitle>
+
+    <h4>Average Rating: {{ coffeeMix.averageRating }}</h4>
     <table
       [dataSource]="ratings"
       class="mat-elevation-z8 rating-list"
@@ -94,18 +116,20 @@
     >
       <ng-container matColumnDef="rating">
         <th *matHeaderCellDef mat-header-cell>Rating</th>
-        <td *matCellDef="let element" mat-cell>{{ element.ratingValue }}</td>
+        <td *matCellDef="let element" class="rating" mat-cell>
+          {{ element.ratingValue }}
+        </td>
       </ng-container>
       <ng-container matColumnDef="name">
         <th *matHeaderCellDef mat-header-cell>Name</th>
         <td *matCellDef="let element" mat-cell>{{ element.name }}</td>
       </ng-container>
       <ng-container matColumnDef="review">
-        <th *matHeaderCellDef mat-header-cell>Comment</th>
+        <th *matHeaderCellDef mat-header-cell>Review</th>
         <td *matCellDef="let element" mat-cell>{{ element.review }}</td>
       </ng-container>
       <ng-container matColumnDef="amount">
-        <th *matHeaderCellDef mat-header-cell>Amount</th>
+        <th *matHeaderCellDef mat-header-cell>Amount in Gramm</th>
         <td *matCellDef="let element" mat-cell>{{ element.amount }}</td>
       </ng-container>
       <ng-container matColumnDef="grind">
@@ -115,9 +139,10 @@
       <ng-container matColumnDef="createdDate">
         <th *matHeaderCellDef mat-header-cell>Date</th>
         <td *matCellDef="let element" mat-cell>
-          {{ element.createdDateTime }}
+          {{ element.createdDateTime | date: "dd.MM.YYYY" }}
         </td>
       </ng-container>
+
       <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
       <tr *matRowDef="let row; columns: displayedColumns" mat-row></tr>
     </table>

@@ -38,6 +38,8 @@ public class CoffeeMix {
 
     private double averageRating;
 
+    private int totalRatings;
+
     @ManyToMany
     @OrderBy("origin ASC")
     private Set<Bean> beans = new HashSet<>();
@@ -75,6 +77,15 @@ public class CoffeeMix {
     }
 
     // Getter & Setter
+
+    public long getTotalRatings() {
+        var total = getRatings().stream().count();
+        return total;
+    }
+
+    public void setTotalRatings(int totalRatings) {
+        this.totalRatings = totalRatings;
+    }
 
     public void setAverageRating(double averageRating) {
         this.averageRating = averageRating;

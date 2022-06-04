@@ -4,7 +4,7 @@
 <div mat-dialog-content>
   <mat-form-field appearance="outline">
     <mat-label>Your Name</mat-label>
-    <input [(ngModel)]="rating.name" dense matInput />
+    <input [(ngModel)]="rating.name" dense matInput required/>
   </mat-form-field>
 
   <p>Your Rating</p>
@@ -24,12 +24,13 @@
       [(ngModel)]="rating.review"
       matInput
       placeholder="Ex. It makes me feel..."
+      required
     ></textarea>
   </mat-form-field>
 
   <mat-form-field appearance="outline" dense>
     <mat-label>Amount in Gramms you used to prepare your coffee</mat-label>
-    <input [(ngModel)]="rating.amount" dense matInput type="number" />
+    <input [(ngModel)]="rating.amount" dense matInput required type="number"/>
   </mat-form-field>
 
   <p>Grinding Grade (fine to coarse)</p>

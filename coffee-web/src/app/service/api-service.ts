@@ -57,4 +57,9 @@ export class ApiService {
   public findAllBeans(): Observable<Bean[]> {
     return this.http.get<Bean[]>(this.beanUrl);
   }
+
+  public deleteCoffeeMixById(id: number): Observable<CoffeeMix> {
+    console.log('find by id service works', id);
+    return this.http.delete<CoffeeMix>(`${this.coffeeMixUrl}/${id}`);
+  }
 }

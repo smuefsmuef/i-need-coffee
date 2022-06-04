@@ -4,34 +4,140 @@
       <mat-card-title>About</mat-card-title>
       <mat-card-subtitle>Rate your Cup of Coffee!</mat-card-subtitle>
     </mat-card-header>
-    <img alt="Coffee Bean Logo" mat-card-image src="assets/img/coffee_3.jpg" />
+    <img alt="Coffee Bean Logo" mat-card-image src="assets/img/coffee_3.jpg"/>
     <mat-card-content>
-      <h3>
-        This is a sample application for the module Web Engineering at the FHNW.
-        It shows a list of coffee blends (coffee mixes), allows to add and edit
-        new blends and to review a single cup of coffee.
-      </h3>
-      <h3>The application is based on 3 Entities:</h3>
-      <ul>
-        <li>CoffeeMix</li>
-        <li>Bean</li>
-        <li>Rating</li>
-      </ul>
-      <h3>with following Relations:</h3>
-      <ul>
-        <li>CoffeeMix - Bean (m:m)</li>
-        <li>CoffeeMix - Raiting (m:1)</li>
-      </ul>
-      <p>Consult the READ ME' to run the application.</p>
-      <h2>Individual</h2>
-      <ul>
-        <li>Rich-Client with JavaScript (React)</li>
-        <li>Frontend with Angular 13 and Material UI</li>
-      </ul>
-      <h2>Team</h2>
-      <p>Petra Kohler</p>
-      <p>Jonas Gysin</p>
+      <mat-tab-group>
+        <mat-tab label="PROJECT">
+          <mat-card-content class="tabs">
+            <mat-card-title>Description</mat-card-title>
+            <mat-card-subtitle>
+              This is a simple web application for the module Web Engineering at
+              the FHNW. <br/>'I need Coffee' helps coffee-lovers to collect and
+              rate the different coffee blends they have tasted.
+              <br/>Coffee-lovers are able to add new blends (coffee-mixes) to
+              the database, edit or delete them and leave ratings & reviews.
+            </mat-card-subtitle>
+            <mat-card-content>
+              <h3 class="bold">The application is based on 3 Entities:</h3>
+              <ul>
+                <li>CoffeeMix</li>
+                <li>Bean</li>
+                <li>Rating</li>
+              </ul>
+              <h3 class="bold">with following Relations:</h3>
+              <ul>
+                <li>CoffeeMix - Bean (n:n)</li>
+                <li>CoffeeMix - Raiting (1:n)</li>
+              </ul>
+              <h3 class="bold">Individual</h3>
+              <ul>
+                <li>Rich-Client with Angular 13</li>
+                <li>Sophisticated and responsive design, Material UI</li>
+              </ul>
+              <h3 class="bold">Run</h3>
+              <p>
+                Consult the READ ME's or the RUN & INSTALLATION on this page on
+                how to run the application.
+              </p>
+              <h3 class="bold">Team</h3>
+              <p>Petra Kohler</p>
+              <p>Jonas Gysin</p>
+            </mat-card-content>
+            <p></p>
+          </mat-card-content>
+        </mat-tab>
+
+        <!---------------------------------------------------------------------->
+        <mat-tab label="RUN & INSTALLATION">
+          <mat-card-content class="tabs">
+            <mat-card-title>Backend</mat-card-title>
+            <mat-card-subtitle
+            >This is a Java Spring Boot with gradle application....
+            </mat-card-subtitle>
+            <mat-card-content>
+              <h3 class="bold">Run application backend</h3>
+              <p>./gradlew bootRun</p>
+              <p>./gradlew test</p>
+              <p>./gradlew bootRun</p>
+            </mat-card-content>
+
+            <mat-card-title>Frontend</mat-card-title>
+            <mat-card-subtitle
+            >This project was generated with
+              <a href="https://angular.io/cli" underline="none">Angular CLI</a>
+              version 13.3.3. As a UI component library we used
+              <a href="https://material.angular.io/" underline="none"
+              >Material Angular UI</a
+              >
+              and as a e2e Testing Framework we implemented
+              <a href="https://www.cypress.io/" underline="none">Cypress </a>.
+              Our code was formatted with the help of
+              <a href="https://prettier.io/" underline="none">Prettier </a>.
+            </mat-card-subtitle>
+            <mat-card-content>
+              <h3 class="bold">Setup Angular Application</h3>
+              <p>npm i @angular/cli</p>
+              <h3 class="bold">Run</h3>
+              <p>
+                Run <i> npm install </i>. <br/>
+                Run <i> ng serve </i> for a dev server. Navigate to
+                http://localhost:4200/.
+              </p>
+              <h3 class="bold">Running e2e Tests</h3>
+              <p>
+                Run <i> npx cypress open </i>. Run the all or single tests in
+                the cypress browser window.
+              </p>
+              <h3 class="bold">Run Prettier</h3>
+              <p>
+                Run <i> npx prettier --check . </i> to check your code. Run
+                <i> npx prettier --write . </i> to format your code.
+              </p>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-tab>
+
+        <!---------------------------------------------------------------------->
+
+        <mat-tab label="HOW TO">
+          <mat-card-content class="tabs">
+            <mat-card-title></mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-content>
+              <h3 class="bold">Overview</h3>
+              <p>Navigation</p>
+              <img src="assets/img/overview.jpg" width="50%"/>
+              <p>Overview</p>
+              <img src="assets/img/overview2.jpg" width="50%"/>
+              <h3 class="bold">Add a new Coffee Blend</h3>
+              <p>Navigate to Form</p>
+              <img src="assets/img/add1.jpg" width="50%"/>
+              <p>Step 1</p>
+              <img src="assets/img/add2.jpg" width="50%"/>
+              <p>Step 2</p>
+              <img src="assets/img/add3.jpg" width="50%"/>
+              <h3 class="bold">Edit Coffee Blend</h3>
+              <p>Add existing Beans</p>
+              <img src="assets/img/addBean1.jpg" width="50%"/>
+              <p>Add a new Bean</p>
+              <img src="assets/img/addBean2.jpg" width="50%"/>
+              <p>Delete Blend and it's Ratings</p>
+              <img src="assets/img/delete.jpg" width="50%"/>
+              <h3 class="bold">Ratings</h3>
+              <p>Add Rating</p>
+              <img src="assets/img/rating1.jpg" width="50%"/>
+              <p>Fill Form</p>
+              <img src="assets/img/rating2.jpg" width="50%"/>
+              <p>Read Ratings</p>
+              <img src="assets/img/rating3.jpg" width="50%"/>
+              <p>Average & No of Ratings</p>
+              <img src="assets/img/rating4.jpg" width="50%"/>
+            </mat-card-content>
+          </mat-card-content>
+        </mat-tab>
+      </mat-tab-group>
     </mat-card-content>
+
     <mat-divider inset></mat-divider>
 
     <mat-card-actions>
@@ -39,6 +145,17 @@
         <a href="https://gitlab.fhnw.ch/webec-fs22/kohler-gysin" target="_blank"
         >GITLAB</a
         >
+      </button>
+      <button color="primary" mat-button>
+        <a href="https://voltagecoffee.com/coffee/" target="_blank"
+        >COFFEE DICTIONARY</a
+        >
+      </button>
+      <button color="primary" mat-button>
+        <a href="mailto:petra.kohler@students.fhnw.ch">Petra Kohler</a>
+      </button>
+      <button color="primary" mat-button>
+        <a href="mailto:jonas.gysin@students.fhnw.ch">Jonas Gysin</a>
       </button>
     </mat-card-actions>
   </mat-card>

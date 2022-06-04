@@ -3,7 +3,6 @@
 
 html,
 body {
-  height: 100%;
 }
 
 body {
@@ -21,7 +20,7 @@ body {
 }
 
 .mat-toolbar.mat-accent {
-  background: #c6805e;
+  background: #7a3d21;
 }
 
 .mat-chip.mat-standard-chip.mat-chip-selected.mat-accent {
@@ -30,4 +29,26 @@ body {
 
 .subtitle {
   margin-top: 30px !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.app-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.title {
+  margin-left: 0.4em;
+  font-size: 1.9em; /* 40px/16=2.5em */
+  color: #d8b395;
+}
+
+.menu {
+  color: #d8b395;
 }

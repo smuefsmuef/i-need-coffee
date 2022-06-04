@@ -17,27 +17,28 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OverviewComponent } from './component/overview/overview.component';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {OverviewComponent} from './component/overview/overview.component';
 
-import { HttpClientModule } from '@angular/common/http';
-import { ApiService } from './service/api-service';
+import {HttpClientModule} from '@angular/common/http';
+import {ApiService} from './service/api-service';
 
-import { AboutComponent } from './component/about/about.component';
+import {AboutComponent} from './component/about/about.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule } from '@angular/material/core';
-import { CommonModule } from '@angular/common';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatCardModule } from '@angular/material/card';
-import { DetailComponent } from './component/detail/detail.component';
-import { AddCoffeeMixComponent } from './component/add-coffee-mix/add-coffee-mix.component';
-import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
-import { RatingDialogComponent } from './component/overview/rating-dialog/rating-dialog.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {CommonModule} from '@angular/common';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatCardModule} from '@angular/material/card';
+import {DetailComponent} from './component/detail/detail.component';
+import {AddCoffeeMixComponent} from './component/add-coffee-mix/add-coffee-mix.component';
+import {PageNotFoundComponent} from './component/page-not-found/page-not-found.component';
+import {RatingDialogComponent} from './component/overview/rating-dialog/rating-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatChipsModule,
     MatTooltipModule,
     MatTableModule,
+    MatTabsModule,
     MatPaginatorModule,
     MatMenuModule,
     MatCardModule,

@@ -44,8 +44,6 @@ public class CoffeeMixController {
         return ResponseEntity.ok(coffeeMix);
     }
 
-
-
     // Add a new Coffee Mix
     @PostMapping()
     public ResponseEntity<CoffeeMix> addCoffeeMix(@Valid @RequestBody CoffeeMix coffeeMix, BindingResult bindingResult) {
@@ -78,13 +76,11 @@ public class CoffeeMixController {
         return ResponseEntity.noContent().build();
     }
 
-
     // Get Ratings of a Coffee Mix by id
     @GetMapping("{coffeeMixId}/ratings")
     public ResponseEntity<List<Rating>> findRatingsByCoffeeMix(@PathVariable("coffeeMixId") int coffeeMixId) {
         return ResponseEntity.ok().body(this.ratingRepository.findByCoffeeMixId(coffeeMixId));
     }
-
 
     // Create new Rating
     @PostMapping("{coffeeMixId}/ratings")
@@ -99,7 +95,5 @@ public class CoffeeMixController {
             return ResponseEntity.status(HttpStatus.CREATED).body(this.ratingRepository.save(rating));
         }
     }
-
-
 
 }

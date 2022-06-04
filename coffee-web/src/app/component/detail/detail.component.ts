@@ -25,8 +25,8 @@ export class DetailComponent implements OnInit {
   ratingDateFormatted: number;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
   displayedColumns: string[] = [
-    'rating',
     'name',
+    'rating',
     'review',
     'amount',
     'grind',
@@ -109,6 +109,10 @@ export class DetailComponent implements OnInit {
     this.beanCtrl.setValue(null);
   }
 
-
-  // todo add functionality delete rating
+  deleteCoffeeMixById(id) {
+    this.coffeeMixService.deleteCoffeeMixById(id).subscribe((response) =>
+      // console.log(response, 'delete ok')
+      this.gotoCoffeeOverview()
+    );
+  }
 }

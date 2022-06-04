@@ -5,48 +5,6 @@ import { RatingDialogComponent } from './rating-dialog/rating-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
-const ELEMENT_DATA: CoffeeMix[] =
-  // testdata
-  [
-    {
-      id: 1,
-      name: 'mix eins',
-      pricePerKg: 20,
-      roastDegree: 5,
-      beans: [],
-      ratings: [],
-    },
-    {
-      id: 2,
-      name: 'mix zwei',
-      pricePerKg: 14,
-      roastDegree: 4,
-      beans: [],
-      ratings: [
-        {
-          id: 110,
-          rating: 3,
-          name: 'petra',
-          review: 'der kafi ist angenehm sauer und bll...',
-          amount: 50,
-          grind: 5,
-          createdDate: '2022-05-08',
-          coffeeMix: 'string',
-        },
-        {
-          id: 111,
-          rating: 5,
-          name: 'jonas',
-          review: 'der kafi ist angenehm sauer und bll...',
-          amount: 30,
-          grind: 2,
-          createdDate: '2022-05-08',
-          coffeeMix: 'string',
-        },
-      ],
-    },
-  ];
-
 @Component({
   selector: 'app-overview',
   templateUrl: './overview.component.html',
@@ -61,6 +19,7 @@ export class OverviewComponent implements OnInit {
     'name',
     'pricePerKg',
     'roastDegree',
+    'totalRatings',
     'ratings',
     'link',
   ];
