@@ -3113,14 +3113,19 @@
   "resolved" "https://registry.npmjs.org/es-module-lexer/-/es-module-lexer-0.9.3.tgz"
   "version" "0.9.3"
 
-"esbuild-linux-64@0.14.22":
-  "integrity" "sha512-Zcl9Wg7gKhOWWNqAjygyqzB+fJa19glgl2JG7GtuxHyL1uEnWlpSMytTLMqtfbmRykIHdab797IOZeKwk5g0zg=="
-  "resolved" "https://registry.npmjs.org/esbuild-linux-64/-/esbuild-linux-64-0.14.22.tgz"
-  "version" "0.14.22"
-
 "esbuild-wasm@0.14.22":
   "integrity" "sha512-FOSAM29GN1fWusw0oLMv6JYhoheDIh5+atC72TkJKfIUMID6yISlicoQSd9gsNSFsNBvABvtE2jR4JB1j4FkFw=="
   "resolved" "https://registry.npmjs.org/esbuild-wasm/-/esbuild-wasm-0.14.22.tgz"
+  "version" "0.14.22"
+
+"esbuild-windows-32@0.14.22":
+  "integrity" "sha512-1vRIkuvPTjeSVK3diVrnMLSbkuE36jxA+8zGLUOrT4bb7E/JZvDRhvtbWXWaveUc/7LbhaNFhHNvfPuSw2QOQg=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-32/-/esbuild-windows-32-0.14.22.tgz"
+  "version" "0.14.22"
+
+"esbuild-windows-64@0.14.22":
+  "integrity" "sha512-AxjIDcOmx17vr31C5hp20HIwz1MymtMjKqX4qL6whPj0dT9lwxPexmLj6G1CpR3vFhui6m75EnBEe4QL82SYqw=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.14.22.tgz"
   "version" "0.14.22"
 
 "esbuild@0.14.22":
@@ -4875,28 +4880,10 @@
   "resolved" "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   "version" "2.6.2"
 
-"nice-napi@^1.0.2":
-  "integrity" "sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA=="
-  "resolved" "https://registry.npmjs.org/nice-napi/-/nice-napi-1.0.2.tgz"
-  "version" "1.0.2"
-  dependencies:
-    "node-addon-api" "^3.0.0"
-    "node-gyp-build" "^4.2.2"
-
-"node-addon-api@^3.0.0":
-  "integrity" "sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A=="
-  "resolved" "https://registry.npmjs.org/node-addon-api/-/node-addon-api-3.2.1.tgz"
-  "version" "3.2.1"
-
 "node-forge@^1":
   "integrity" "sha512-dPEtOeMvF9VMcYV/1Wb8CPoVAXtp6MKMlcbAt4ddqmGqUJ6fQZFXkNZNkNlfevtNkGtaSoXf/vNNNSvgrdXwtA=="
   "resolved" "https://registry.npmjs.org/node-forge/-/node-forge-1.3.1.tgz"
   "version" "1.3.1"
-
-"node-gyp-build@^4.2.2":
-  "integrity" "sha512-amJnQCcgtRVw9SvoebO3BKGESClrfXGCUTX9hSn1OuGQTQBOZmVd0Z0OlecpuRksKvbsUqALE8jls/ErClAPuQ=="
-  "resolved" "https://registry.npmjs.org/node-gyp-build/-/node-gyp-build-4.4.0.tgz"
-  "version" "4.4.0"
 
 "node-gyp@^8.2.0":
   "integrity" "sha512-olTJRgUtAb/hOXG0E93wZDs5YiJlgbXxTwQAFHyNlRsXQnYzUaF2aGgujZbw+hR8aF4ZG/rST57bWMWD16jr9w=="
