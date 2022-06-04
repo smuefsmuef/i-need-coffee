@@ -5,4 +5,5 @@ export class CoffeeMix {
   roastDegree: number | null;
   beans: any | undefined;
   ratings: any | undefined;
+  averageRating: any;
 }

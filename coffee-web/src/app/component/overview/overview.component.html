@@ -1,10 +1,10 @@
 <div class="container-card">
   <mat-card class="example-card">
-    <mat-card-title>Overview - My Coffee Blends</mat-card-title>
+    <mat-card-title>My Coffee Blends</mat-card-title>
 
     <mat-card-subtitle
-      >A list of all Coffee Blends (Coffee Mixes) that are stored in our
-      database and that can be rated.
+    >A list of Coffee Blends (Coffee Mixes) from all around the world. Add new
+      Blends and rate each cup of Coffee!
     </mat-card-subtitle>
 
     <mat-card-actions>
@@ -43,11 +43,11 @@
         <td *matCellDef="let element" mat-cell>{{ element.roastDegree }}</td>
       </ng-container>
 
-      <!-- ratings Column -->
-      <ng-container matColumnDef="ratings">
-        <th *matHeaderCellDef mat-header-cell>Average Rating</th>
+      <!-- totalRatings Column -->
+      <ng-container matColumnDef="totalRatings">
+        <th *matHeaderCellDef mat-header-cell>No. of Ratings</th>
         <td *matCellDef="let element" mat-cell>
-          {{ element.averageRating }}/6
+          {{ element.totalRatings }}
           <button
             (click)="openDialog(element)"
             aria-label="icon-button"
@@ -59,17 +59,25 @@
         </td>
       </ng-container>
 
+      <!-- ratings Column -->
+      <ng-container matColumnDef="ratings">
+        <th *matHeaderCellDef mat-header-cell>Average Rating</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.averageRating }} / 6
+        </td>
+      </ng-container>
+
       <!-- link to Detail -->
       <ng-container matColumnDef="link">
         <th *matHeaderCellDef mat-header-cell>More</th>
-        <td *matCellDef="let element" align="right" mat-cell>
+        <td *matCellDef="let element" mat-cell>
           <button
             aria-label="icon-button"
             class="coffee-mix-icon"
             mat-icon-button
             routerLink="/coffeemix/{{ element.id }}"
           >
-            <mat-icon class="brown">read_more</mat-icon>
+            <mat-icon class="brown">keyboard_arrow_right</mat-icon>
           </button>
         </td>
       </ng-container>

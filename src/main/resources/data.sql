@@ -1,13 +1,11 @@
--- Todo adjust data
-
 -- Add first Beans
 INSERT IGNORE INTO BEAN (id, type, origin, altitude) VALUES (1, 'Arabica', 'Veracruz, MX', 1500);
 INSERT IGNORE INTO BEAN (id, type, origin, altitude) VALUES (2, 'Robusta K1', 'Veracruz, MX', 1000);
-INSERT IGNORE INTO BEAN (id, type, origin, altitude) VALUES (3, 'Arabica I', 'Indonesia', 500);
+INSERT IGNORE INTO BEAN (id, type, origin, altitude) VALUES (3, 'Liberica', 'Indonesia', 500);
 
 -- Add first Coffee Mixes
-INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg, average_rating) VALUES (1, 'Mexico High Mountain', 3, 20, 1);
-INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg, average_rating) VALUES (2, 'Java Blend ',2, 32, 2);
+INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg, average_rating, total_ratings) VALUES (1, 'Mexico High Mountain', 3, 20, 1, 1);
+INSERT IGNORE INTO COFFEE_MIX (id, name, roast_degree, price_per_kg, average_rating, total_ratings) VALUES (2, 'Java Blend ',2, 32, 2, 0);
 
 -- Add Beans to Coffee Mixes
 INSERT IGNORE INTO COFFEE_MIX_BEANS(coffee_mix_id, beans_id) VALUES (1, 1);
