@@ -1,4 +1,4 @@
-package ch.fhnw.webec.exercise;
+package ch.fhnw.webec;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -6,5 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class CoffeeApplicationTests {
     @Test
-    void contextLoads() {}
+    void contextLoads() {
+    }
 }
